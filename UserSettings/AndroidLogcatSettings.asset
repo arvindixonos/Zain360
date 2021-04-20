@@ -1,37 +1,13 @@
 {
     "m_SelectedDeviceId": "6a09da8a",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "6a09da8a",
+        "name": "com.momo.Zain360",
+        "processId": 11282,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "6a09da8a",
-            "name": "com.momo.Zain360",
-            "processId": 10214,
-            "exited": true
-        },
-        {
-            "deviceId": "6a09da8a",
-            "name": "com.bbk.launcher2",
-            "processId": 21342,
-            "exited": false
-        },
-        {
-            "deviceId": "6a09da8a",
-            "name": "com.momo.Zain360",
-            "processId": 17182,
-            "exited": true
-        },
-        {
-            "deviceId": "6a09da8a",
-            "name": "com.momo.Zain360",
-            "processId": 20080,
-            "exited": true
-        },
         {
             "deviceId": "6a09da8a",
             "name": "com.momo.Zain360",
@@ -48,6 +24,36 @@
             "deviceId": "6a09da8a",
             "name": "com.momo.Zain360",
             "processId": 24068,
+            "exited": true
+        },
+        {
+            "deviceId": "6a09da8a",
+            "name": "com.momo.Zain360",
+            "processId": 28317,
+            "exited": true
+        },
+        {
+            "deviceId": "6a09da8a",
+            "name": "com.momo.Zain360",
+            "processId": 29543,
+            "exited": true
+        },
+        {
+            "deviceId": "6a09da8a",
+            "name": "com.momo.Zain360",
+            "processId": 32711,
+            "exited": false
+        },
+        {
+            "deviceId": "6a09da8a",
+            "name": "com.momo.Zain360",
+            "processId": 8113,
+            "exited": false
+        },
+        {
+            "deviceId": "6a09da8a",
+            "name": "com.momo.Zain360",
+            "processId": 11282,
             "exited": false
         }
     ],

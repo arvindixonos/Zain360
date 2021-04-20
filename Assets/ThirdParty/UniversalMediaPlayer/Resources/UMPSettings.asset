@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d176f882053db4989a5a6d452a78ee, type: 3}
   m_Name: UMPSettings
   m_EditorClassIdentifier: 
-  _assetPath: Assets/UniversalMediaPlayer
+  _assetPath: Assets/ThirdParty/UniversalMediaPlayer
   _useAudioSource: 0
-  _useExternalLibraries: 0
-  _librariesPath: C:\Users\Arvind\Desktop\Projects\TestStreaming\Assets\UniversalMediaPlayer\Plugins\Win\x86_64\
+  _useExternalLibraries: 1
+  _librariesPath: C:\Program Files\VideoLAN\VLC\
   _playersAndroid: 3
   _playersIPhone: 3
   _androidExportedPaths: []

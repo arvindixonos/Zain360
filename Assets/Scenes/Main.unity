@@ -127,6 +127,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2016905559}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &222958439 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c,
+    type: 3}
+  m_PrefabInstance: {fileID: 282978177}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bad016bb70440e43a0a4da64cfad6d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &271953905
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _path
-      value: http://77.232.100.197/dash/bbb.mpd
+      value: http://77.232.100.197/hls/class01.mpd
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _volume
@@ -390,7 +402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _autoPlay
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _logDetail
@@ -402,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _chosenPlatform
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _networkCaching
@@ -422,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _androidRtspOverTcp
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _androidVideoChroma
@@ -450,7 +462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _androidOpenGLDecoding
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _desktopNetworkCaching
@@ -1161,3 +1173,5 @@ MonoBehaviour:
   domeMaterial: {fileID: 2100000, guid: a1d3513c88f742040b8d2e630b7d62c5, type: 2}
   UICanvas: {fileID: 271953908}
   updateText: {fileID: 1144985688}
+  ipAddress: 77.232.100.197
+  universalMediaPlayer: {fileID: 222958439}
