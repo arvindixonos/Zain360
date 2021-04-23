@@ -19,6 +19,8 @@ namespace Zain360
         public string ipAddress;
         public UniversalMediaPlayer universalMediaPlayer;
 
+        private Quaternion rot = new Quaternion(0, 1, 0, 1);
+
         public void ShowCanvas()
         {
             UICanvas.gameObject.SetActive(true);
@@ -70,17 +72,31 @@ namespace Zain360
 
         private void Start()
         {
+#if UNITY_ANDROID
+            Input.gyro.enabled = true;
+#endif
+
             StreamClassRoom("class01");
         }
-    
+
+        private void Update()
+        {
+//#if UNITY_ANDROID 
+//            Camera.main.transform.localRotation = Input.gyro.attitude * rot;
+
+//            print(Camera.main.transform.localRotation.eulerAngles + "   " + Input.gyro.attitude.eulerAngles);
+//#endif
+        }
+
         public void StreamClassRoom(string classroomname)
         {
-
-#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-            universalMediaPlayer.Path = "http://" + ipAddress + "/dash/" + classroomname + ".mpd";
-#elif UNITY_ANDROID
-            universalMediaPlayer.Path = "http://" + ipAddress + "/hls/" + classroomname + ".m3u8";
-#endif
+            universalMediaPlayer.Path = "rtmp://" + ipAddress + "/live/" + classroomname;
+//#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+//            //universalMediaPlayer.Path = "http://" + ipAddress + "/dash/" + classroomname + ".mpd";
+//            universalMediaPlayer.Path = "rtmp://" + ipAddress + "/live/" + classroomname;
+//#elif UNITY_ANDROID
+//            universalMediaPlayer.Path = "http://" + ipAddress + "/hls/" + classroomname + ".m3u8";
+//#endif
             universalMediaPlayer.Play();
         }
     }
