@@ -2,43 +2,30 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ZainToggle : MonoBehaviour
+public class ZainButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public string textTitle;
     public Text titleText;
     public Color textSelectedColor = Color.white;
     public Color textUnselectedColor = Color.green;
 
-    private Toggle targetToggle;
-
     public MonoBehaviour targetMono;
     public string targetFunctionName;
 
-    public void ValueChanged()
+    public void OnClicked()
     {
-        if(targetToggle != null)
-        {
-            if (targetToggle.isOn)
-            {
-                ToggleOn();
-            }
-            else
-            {
-                ToggleOff();
-            }
-        }
-    }
-
-    public void ToggleOn()
-    {
-        ChangeToSelectedColor();
-
-        if(targetMono != null)
+        if (targetMono != null)
         {
             targetMono.SendMessage(targetFunctionName);
         }
+    }
+
+    public void ButtonOn()
+    {
+        ChangeToSelectedColor();
     }
 
     public void ChangeToSelectedColor()
@@ -47,7 +34,7 @@ public class ZainToggle : MonoBehaviour
         titleText.DOColor(textSelectedColor, 0.2f);
     }
 
-    public void ToggleOff()
+    public void ButtonOff()
     {
         ChangeToUnselectedColor();
     }
@@ -61,15 +48,17 @@ public class ZainToggle : MonoBehaviour
     void Awake()
     {
         titleText.text = textTitle;
-        targetToggle = GetComponent<Toggle>();
         
-        if(targetToggle.isOn)
-        {
-            ChangeToSelectedColor(); 
-        }
-        else
-        {
-            ChangeToUnselectedColor();
-        }
+        ChangeToUnselectedColor();
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        ButtonOff();
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        ButtonOn();
     }
 }

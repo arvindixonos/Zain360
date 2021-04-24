@@ -1,43 +1,13 @@
 {
     "m_SelectedDeviceId": "6a09da8a",
     "m_SelectedPackage": {
-        "deviceId": "6a09da8a",
-        "name": "com.momo.Zain360",
-        "processId": 28488,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "6a09da8a",
-            "name": "com.instagram.android",
-            "processId": 7589,
-            "exited": true
-        },
-        {
-            "deviceId": "6a09da8a",
-            "name": "com.momo.Zain360",
-            "processId": 12083,
-            "exited": true
-        },
-        {
-            "deviceId": "6a09da8a",
-            "name": "com.momo.Zain360",
-            "processId": 13840,
-            "exited": true
-        },
-        {
-            "deviceId": "6a09da8a",
-            "name": "com.momo.Zain360",
-            "processId": 14698,
-            "exited": true
-        },
-        {
-            "deviceId": "6a09da8a",
-            "name": "com.momo.Zain360",
-            "processId": 17331,
-            "exited": true
-        },
         {
             "deviceId": "6a09da8a",
             "name": "com.bbk.launcher2",
@@ -47,37 +17,37 @@
         {
             "deviceId": "6a09da8a",
             "name": "com.momo.Zain360",
-            "processId": 24604,
-            "exited": false
-        },
-        {
-            "deviceId": "6a09da8a",
-            "name": "com.momo.Zain360",
             "processId": 19855,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "6a09da8a",
             "name": "com.momo.Zain360",
             "processId": 20673,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "6a09da8a",
             "name": "com.momo.Zain360",
             "processId": 25576,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "6a09da8a",
             "name": "com.momo.Zain360",
             "processId": 27199,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "6a09da8a",
             "name": "com.momo.Zain360",
             "processId": 28488,
+            "exited": true
+        },
+        {
+            "deviceId": "6a09da8a",
+            "name": "com.momo.Zain360",
+            "processId": 5638,
             "exited": false
         }
     ],
