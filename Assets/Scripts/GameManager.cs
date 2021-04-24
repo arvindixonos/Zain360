@@ -62,7 +62,7 @@ namespace Zain360
         {
             print("Playing");
 
-            HideCanvas();
+            //HideCanvas();
         }
 
         public void OnError()
@@ -75,6 +75,8 @@ namespace Zain360
 #if UNITY_ANDROID
             Input.gyro.enabled = true;
 #endif
+
+            UIManager.Instance.ChangePage(ePages.HOME_PAGE);
 
             StreamClassRoom("class01");
         }
