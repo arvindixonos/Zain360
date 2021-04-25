@@ -78,7 +78,7 @@ namespace Zain360
 
             UIManager.Instance.ChangePage(ePages.HOME_PAGE);
 
-            StreamClassRoom("class01");
+            //StreamClassRoom("class01");
         }
 
         private void Update()
