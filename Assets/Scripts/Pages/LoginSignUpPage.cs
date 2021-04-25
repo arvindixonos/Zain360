@@ -42,11 +42,15 @@ namespace Zain360
         public void SignupClicked()
         {
             print("Signup Clicked");
+
+            LoginSelected();
         }
 
         public void LoginClicked()
         {
             print("Login Clicked");
+
+            UIManager.Instance.ChangePage(ePages.HOME_PAGE);
         }
 
         public void ForgotPasswordClicked()

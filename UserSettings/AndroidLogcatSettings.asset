@@ -10,30 +10,6 @@
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "6a09da8a",
-            "name": "com.bbk.launcher2",
-            "processId": 6674,
-            "exited": false
-        },
-        {
-            "deviceId": "6a09da8a",
-            "name": "com.momo.Zain360",
-            "processId": 19855,
-            "exited": true
-        },
-        {
-            "deviceId": "6a09da8a",
-            "name": "com.momo.Zain360",
-            "processId": 20673,
-            "exited": true
-        },
-        {
-            "deviceId": "6a09da8a",
-            "name": "com.momo.Zain360",
-            "processId": 25576,
-            "exited": true
-        },
-        {
-            "deviceId": "6a09da8a",
             "name": "com.momo.Zain360",
             "processId": 27199,
             "exited": true
@@ -48,6 +24,24 @@
             "deviceId": "6a09da8a",
             "name": "com.momo.Zain360",
             "processId": 5638,
+            "exited": true
+        },
+        {
+            "deviceId": "6a09da8a",
+            "name": "com.momo.Zain360",
+            "processId": 19754,
+            "exited": true
+        },
+        {
+            "deviceId": "6a09da8a",
+            "name": "com.bbk.launcher2",
+            "processId": 16428,
+            "exited": true
+        },
+        {
+            "deviceId": "6a09da8a",
+            "name": "com.momo.Zain360",
+            "processId": 12112,
             "exited": false
         }
     ],

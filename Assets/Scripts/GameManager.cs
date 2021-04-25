@@ -15,68 +15,29 @@ namespace Zain360
         public Canvas UICanvas;
         public Text updateText;
 
+        public static GameManager Instance;
 
         public string ipAddress;
         public UniversalMediaPlayer universalMediaPlayer;
 
         private Quaternion rot = new Quaternion(0, 1, 0, 1);
 
-        public void ShowCanvas()
-        {
-            UICanvas.gameObject.SetActive(true);
-        }
-
-        public void HideCanvas()
-        {
-            UICanvas.gameObject.SetActive(false);
-        }
-
-        public void PathPrepared(String path)
-        {
-            print("Path Prepared: " + path);
-            //updateText.text = "Path Prepared";
-        }
-
-        public void Opening()
-        {
-            print("Opening");
-        }
-
-        public void Buffering(float percentage)
-        {
-            print("Buffering: " + percentage);
-            //updateText.text = "Buffering";
-        }
-
-        public void ImageReady(UnityEngine.Object texture)
-        {
-            print("Image Ready");
-        }
-
-        public void Prepared(int width, int height)
-        {
-            print("Prepared: " + width + "x" + height);
-        }
-
-        public void Playing()
-        {
-            print("Playing");
-
-            //HideCanvas();
-        }
-
-        public void OnError()
-        {
-            print("SOME ERROR!");
-        }
+        public GyroCamera gyroCamera;
+        public SimpleRotateSphere rotateCamera;
 
         private void Start()
         {
-#if UNITY_ANDROID
+#if UNITY_ANDROID && !UNITY_EDITOR
             Input.gyro.enabled = true;
+            gyroCamera.enabled = true;
+            rotateCamera.enabled = false;
+#else
+            Input.gyro.enabled = false;
+            gyroCamera.enabled = false;
+            rotateCamera.enabled = true;
 #endif
 
-            UIManager.Instance.ChangePage(ePages.HOME_PAGE);
+            UIManager.Instance.ChangePage(ePages.LOGIN_SIGNUP_PAGE);
 
             //StreamClassRoom("class01");
         }
@@ -90,7 +51,12 @@ namespace Zain360
 //#endif
         }
 
-        public void StreamClassRoom(string classroomname)
+        public void StopStream()
+        {
+            universalMediaPlayer.Stop(true);
+        }
+
+        public void StreamRoom(string classroomname)
         {
             universalMediaPlayer.Path = "rtmp://" + ipAddress + "/live/" + classroomname;
 //#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
@@ -101,6 +67,19 @@ namespace Zain360
 //#endif
             universalMediaPlayer.Play();
         }
+
+        private void Awake()
+        {
+            if(Instance == null)
+            {
+                Instance = this;
+            }
+        }
+
+        public void OnDestroy()
+        {
+            Instance = null;
+        }        
     }
 
 }
