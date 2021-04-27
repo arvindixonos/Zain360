@@ -452,7 +452,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -12.999756, y: 242}
+  m_AnchoredPosition: {x: -12.999695, y: 242}
   m_SizeDelta: {x: 323, y: 56}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &66239351
@@ -3747,8 +3747,8 @@ MonoBehaviour:
   lastnameField: {fileID: 1525614850}
   su_usernameField: {fileID: 905088508}
   su_passwordField: {fileID: 1069473659}
-  lo_usernameField: {fileID: 0}
-  lo_passwordField: {fileID: 0}
+  lo_usernameField: {fileID: 135739449}
+  lo_passwordField: {fileID: 546613843}
   signupPanel: {fileID: 291603335}
   loginPanel: {fileID: 884545998}
   forgotPasswordPanel: {fileID: 0}
@@ -5789,7 +5789,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -12.999756, y: 148.00002}
+  m_AnchoredPosition: {x: -12.999695, y: 148.00002}
   m_SizeDelta: {x: 323, y: 56}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &819503388

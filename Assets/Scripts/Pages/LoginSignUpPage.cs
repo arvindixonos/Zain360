@@ -79,7 +79,10 @@ namespace Zain360
         {
             print("Login Clicked");
 
-            UIManager.Instance.ChangePage(ePages.HOME_PAGE);
+            string username = lo_usernameField.text;
+            string password = lo_passwordField.text;
+            
+            GameManager.Instance.Login(username, password);
         }
 
         public void ForgotPasswordClicked()

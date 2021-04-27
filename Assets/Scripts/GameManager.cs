@@ -90,7 +90,31 @@ namespace Zain360
 
         public void Login(string username, string password)
         {
+            Dictionary<string, object> userinfos = new Dictionary<string, object>();
+            userinfos["username"] = username;
+            userinfos["password"] = password;
 
+            MultiplayerManager.Instance.CallServer("login", LoginResult, userinfos);
+        }
+
+        public void LoginResult(Socket socket, Packet packet, params object[] args)
+        {
+            Dictionary<string, object> retObjects = args[0] as Dictionary<string, object>;
+
+            if (retObjects.Count > 0)
+            {
+                int retcode = int.Parse(retObjects["retcode"].ToString());
+                string retstatus = retObjects["retstatus"].ToString();
+
+                if (retcode == 0)
+                {
+                    UIManager.Instance.ChangePage(ePages.HOME_PAGE);
+                }
+                else
+                {
+                    print(retstatus);
+                }
+            }
         }
 
         public void Signup(string firstname, string lastname, string username, string password)
