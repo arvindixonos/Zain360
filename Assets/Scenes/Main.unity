@@ -3743,12 +3743,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgfadeSpeed: 10
   fadeInDelay: 1
-  emailField: {fileID: 0}
-  passwordField: {fileID: 0}
+  firstnameField: {fileID: 353947025}
+  lastnameField: {fileID: 1525614850}
+  su_usernameField: {fileID: 905088508}
+  su_passwordField: {fileID: 1069473659}
+  lo_usernameField: {fileID: 0}
+  lo_passwordField: {fileID: 0}
   signupPanel: {fileID: 291603335}
   loginPanel: {fileID: 884545998}
   forgotPasswordPanel: {fileID: 0}
   resetPasswordPanel: {fileID: 0}
+  loginToggle: {fileID: 1807147741}
+  signupToggle: {fileID: 1159403379}
 --- !u!225 &391502893
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4617,7 +4623,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2130234383}
+      objectReference: {fileID: 391502892}
     - target: {fileID: 1632805171047755056, guid: 6b94d8ab6d196ce4d9b4644b9ae23bc4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
@@ -7570,7 +7576,7 @@ PrefabInstance:
         type: 3}
       propertyPath: targetMono
       value: 
-      objectReference: {fileID: 2130234383}
+      objectReference: {fileID: 391502892}
     - target: {fileID: 597409918884292875, guid: 73e0be349379aa34ba11cd754bc72b01,
         type: 3}
       propertyPath: targetFunctionName
@@ -8571,6 +8577,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146162291}
   m_CullTransparentMesh: 0
+--- !u!114 &1159403379 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 597409918884292874, guid: 73e0be349379aa34ba11cd754bc72b01,
+    type: 3}
+  m_PrefabInstance: {fileID: 1029997940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1169839769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12232,6 +12250,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806775757}
   m_CullTransparentMesh: 0
+--- !u!114 &1807147741 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 597409918884292874, guid: 73e0be349379aa34ba11cd754bc72b01,
+    type: 3}
+  m_PrefabInstance: {fileID: 1857309778}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1819453951
 GameObject:
   m_ObjectHideFlags: 0
@@ -12391,7 +12421,7 @@ PrefabInstance:
     - target: {fileID: 597409918884292874, guid: 73e0be349379aa34ba11cd754bc72b01,
         type: 3}
       propertyPath: m_IsOn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 597409918884292874, guid: 73e0be349379aa34ba11cd754bc72b01,
         type: 3}
@@ -12442,7 +12472,7 @@ PrefabInstance:
         type: 3}
       propertyPath: targetMono
       value: 
-      objectReference: {fileID: 2130234383}
+      objectReference: {fileID: 391502892}
     - target: {fileID: 597409918884292875, guid: 73e0be349379aa34ba11cd754bc72b01,
         type: 3}
       propertyPath: targetFunctionName
@@ -13523,6 +13553,7 @@ GameObject:
   - component: {fileID: 2021075110}
   - component: {fileID: 2021075111}
   - component: {fileID: 2021075112}
+  - component: {fileID: 2021075113}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -13563,6 +13594,7 @@ MonoBehaviour:
   universalMediaPlayer: {fileID: 222958439}
   gyroCamera: {fileID: 276571308}
   rotateCamera: {fileID: 276571311}
+  address: http://127.0.0.1:2021/socket.io/
 --- !u!114 &2021075112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13583,6 +13615,19 @@ MonoBehaviour:
   - {fileID: 1146162293}
   currentPage: 0
   loadingPage: {fileID: 208027680}
+--- !u!114 &2021075113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021075109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03477dfef9fbf7f419163ae208f3cfb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  address: http://127.0.0.1:2021/socket.io/
 --- !u!1 &2023900959
 GameObject:
   m_ObjectHideFlags: 0
@@ -14210,7 +14255,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2130234383}
+      - m_Target: {fileID: 0}
         m_MethodName: ForgotPasswordClicked
         m_Mode: 1
         m_Arguments:
@@ -14568,7 +14613,6 @@ GameObject:
   - component: {fileID: 2130234381}
   - component: {fileID: 2130234380}
   - component: {fileID: 2130234382}
-  - component: {fileID: 2130234383}
   m_Layer: 5
   m_Name: Login/Signup Panel
   m_TagString: Untagged
@@ -14651,26 +14695,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AllowSwitchOff: 0
---- !u!114 &2130234383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130234378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0415bee12b97284288c0cdb6c5a36b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bgfadeSpeed: 10
-  fadeInDelay: 1
-  emailField: {fileID: 0}
-  passwordField: {fileID: 0}
-  signupPanel: {fileID: 291603335}
-  loginPanel: {fileID: 884545998}
-  forgotPasswordPanel: {fileID: 0}
-  resetPasswordPanel: {fileID: 0}
 --- !u!1 &2133640783
 GameObject:
   m_ObjectHideFlags: 0
@@ -15274,7 +15298,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2130234383}
+      objectReference: {fileID: 391502892}
     - target: {fileID: 1632805171047755056, guid: 6b94d8ab6d196ce4d9b4644b9ae23bc4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState

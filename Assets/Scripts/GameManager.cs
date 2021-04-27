@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UMP;
+using BestHTTP.SocketIO;
+using BestHTTP.SocketIO.Events;
 
 
 namespace Zain360
@@ -24,6 +26,11 @@ namespace Zain360
 
         public GyroCamera gyroCamera;
         public SimpleRotateSphere rotateCamera;
+
+        private SocketManager socketManager;
+
+        public string address = "http://127.0.0.1:2021/socket.io/";
+
 
         private void Start()
         {
@@ -80,6 +87,44 @@ namespace Zain360
         {
             Instance = null;
         }        
-    }
 
+        public void Login(string username, string password)
+        {
+
+        }
+
+        public void Signup(string firstname, string lastname, string username, string password)
+        {
+            Dictionary<string, object> userinfos = new Dictionary<string, object>();
+            userinfos["firstname"] = firstname;
+            userinfos["lastname"] = lastname;
+            userinfos["username"] = username;
+            userinfos["password"] = password;
+
+            MultiplayerManager.Instance.CallServer("signup", SignupResult, userinfos);
+        }
+
+
+        public void SignupResult(Socket socket, Packet packet, params object[] args)
+        {
+            print("Signup result received from server");
+
+            Dictionary<string, object> retObjects = args[0] as Dictionary<string, object>;
+
+            if (retObjects.Count > 0)
+            {
+                int retcode = int.Parse(retObjects["retcode"].ToString());
+                string retstatus = retObjects["retstatus"].ToString();
+
+                if(retcode == 0)
+                {
+                    UIManager.Instance.SendMessageToCurrentPage("SelectLogin");
+                }
+                else
+                {
+                    print(retstatus);
+                }
+            }
+        }
+    }
 }

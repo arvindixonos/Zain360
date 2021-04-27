@@ -6,13 +6,23 @@ namespace Zain360
 {
     public class LoginSignUpPage : Page
     {
-        public InputField emailField;
-        public InputField passwordField;
+        public InputField firstnameField;
+        public InputField lastnameField;
+        public InputField su_usernameField;
+        public InputField su_passwordField;
+
+
+        public InputField lo_usernameField;
+        public InputField lo_passwordField;
+
 
         public GameObject signupPanel;
         public GameObject loginPanel;
         public GameObject forgotPasswordPanel;
         public GameObject resetPasswordPanel;
+
+        public Toggle loginToggle;
+        public Toggle signupToggle;
 
         public override void ShowPage()
         {
@@ -39,11 +49,30 @@ namespace Zain360
             loginPanel.SetActive(true);
         }
 
+        public void SelectLogin()
+        {
+            loginToggle.isOn = true;
+
+            LoginSelected();
+        }
+
+        public void SelectSignup()
+        {
+            signupToggle.isOn = true;
+
+            SignupSelected();
+        }
+
         public void SignupClicked()
         {
             print("Signup Clicked");
 
-            LoginSelected();
+            string firstName = firstnameField.text;
+            string lastName = lastnameField.text;
+            string username = su_usernameField.text;
+            string password = su_passwordField.text;
+
+            GameManager.Instance.Signup(firstName, lastName, username, password);
         }
 
         public void LoginClicked()
@@ -64,20 +93,20 @@ namespace Zain360
         {
             AudioManager.Instance.PlaySound(eSoundList.SOUND_CLICK);
 
-            string email = emailField.text.Trim();
-            string password = passwordField.text;
-            Debug.Log("Login");
-            //string email = "arun@gmail.com";
-            //string password = "123456";
+            //string email = emailField.text.Trim();
+            //string password = passwordField.text;
+            //Debug.Log("Login");
+            ////string email = "arun@gmail.com";
+            ////string password = "123456";
 
-            if (email.Length < 6)
-                return;
+            //if (email.Length < 6)
+            //    return;
 
-            if (password.Length == 0)
-                return;
+            //if (password.Length == 0)
+            //    return;
 
-            UIManager.Instance.ShowLoadingPage();
-            //ProfileManager.Instance.SigninWithEmailAsync(email, password);
+            //UIManager.Instance.ShowLoadingPage();
+            ////ProfileManager.Instance.SigninWithEmailAsync(email, password);
         }
     }
 }
