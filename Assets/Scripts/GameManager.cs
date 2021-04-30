@@ -44,7 +44,7 @@ namespace Zain360
             rotateCamera.enabled = true;
 #endif
 
-            UIManager.Instance.ChangePage(ePages.LOGIN_SIGNUP_PAGE);
+            //UIManager.Instance.ChangePage(ePages.LOGIN_SIGNUP_PAGE);
 
             //StreamClassRoom("class01");
         }
