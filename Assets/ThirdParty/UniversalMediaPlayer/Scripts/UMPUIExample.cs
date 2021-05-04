@@ -88,7 +88,7 @@ namespace UMP
                 {
                     if (!string.IsNullOrEmpty(_videoPath.text))
                         // Set new data source for MediaPlayer as new specified Uri object
-                        _mediaPlayer.DataSource = new Uri(_videoPath.text);
+                        _mediaPlayer.DataSource = _videoPath.text;
 
                     if (_mediaPlayer.Play())
                         _playButtonText.text = "Pause";

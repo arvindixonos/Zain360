@@ -63,10 +63,10 @@ namespace UMP
 
                     _playerObject = new MediaPlayerAndroid(monoObject, videoOutputObjects, androidOptions);
                     break;
-
+                    /*
                 case UMPSettings.Platforms.WebGL:
                     _playerObject = new MediaPlayerWebGL(monoObject, videoOutputObjects, options);
-                    break;
+                    break;*/
             }
 
             if (_playerObject is IPlayer)
@@ -88,7 +88,7 @@ namespace UMP
         public MediaPlayer(MonoBehaviour monoObject, MediaPlayer basedPlayer) : this(monoObject, basedPlayer.VideoOutputObjects, basedPlayer.Options)
         {
             if (basedPlayer.DataSource != null && string.IsNullOrEmpty(basedPlayer.DataSource.ToString()))
-                _player.DataSource = basedPlayer.DataSource.AbsoluteUri;
+                _player.DataSource = basedPlayer.DataSource;
             
             _player.EventManager.CopyPlayerEvents(basedPlayer.EventManager);
             _player.Mute = basedPlayer.Mute;
@@ -247,15 +247,15 @@ namespace UMP
         /// Remote space (streams) - 'rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov';
         /// 'StreamingAssets' folder - 'file:///myVideoFile.mp4';
         /// </summary>
-        public Uri DataSource
+        public string DataSource
         {
             get
             {
-                return new Uri(_player.DataSource);
+                return _player.DataSource;
             }
             set
             {
-                _player.DataSource = value.AbsoluteUri;
+                _player.DataSource = value;
             }
         }
 
@@ -521,8 +521,6 @@ namespace UMP
                     _playerSpu.SpuTrack = value;
             }
         }
-
-        string IPlayer.DataSource { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         /// <summary>
         /// Set new video subtitle file

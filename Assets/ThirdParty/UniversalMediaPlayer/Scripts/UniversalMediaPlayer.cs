@@ -1153,7 +1153,7 @@ namespace UMP
                     Stop();
 
                 _tmpPath = _path;
-                _mediaPlayer.DataSource = new Uri(path);
+                _mediaPlayer.DataSource = path;
             }
 
             if (!playImmediately)

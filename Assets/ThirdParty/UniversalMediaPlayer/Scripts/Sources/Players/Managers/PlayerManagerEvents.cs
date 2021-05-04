@@ -211,7 +211,6 @@ namespace UMP
         private bool IsNativeEvents(object events)
         {
             return events is MediaPlayerStandalone ||
-                events is MediaPlayerWebGL ||
                 events is MediaPlayerAndroid ||
                 events is MediaPlayerIPhone;
         }

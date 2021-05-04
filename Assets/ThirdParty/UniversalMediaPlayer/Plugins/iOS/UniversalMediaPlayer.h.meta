@@ -1,33 +1,24 @@
 fileFormatVersion: 2
 guid: 3273471e6af084ea4bc1c67e7c8ad795
+timeCreated: 1556211311
+licenseType: Store
 PluginImporter:
-  externalObjects: {}
-  serializedVersion: 2
+  serializedVersion: 1
   iconMap: {}
   executionOrder: {}
-  defineConstraints: []
   isPreloaded: 0
-  isOverridable: 0
-  isExplicitlyReferenced: 0
-  validateReferences: 1
   platformData:
-  - first:
-      : data
-    second:
-      enabled: 0
-      settings: {}
-  - first:
-      Editor: Editor
-    second:
+    Editor:
       enabled: 0
       settings:
         DefaultValueInitialized: true
-  - first:
-      iPhone: iOS
-    second:
+    data:
+      enabled: 0
+      settings: {}
+    iOS:
       enabled: 1
       settings:
-        CompileFlags: -DBGRA32 -DNATIVE -DFFMPEG
+        CompileFlags: -DNATIVE -DFFMPEG
   userData: 
   assetBundleName: 
   assetBundleVariant: 
