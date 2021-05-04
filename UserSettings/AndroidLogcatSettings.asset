@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "6a09da8a",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "6a09da8a",
+        "name": "com.momo.Zain360",
+        "processId": 698,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -42,6 +42,24 @@
             "deviceId": "6a09da8a",
             "name": "com.momo.Zain360",
             "processId": 12112,
+            "exited": false
+        },
+        {
+            "deviceId": "6a09da8a",
+            "name": "com.momo.Zain360",
+            "processId": 20298,
+            "exited": false
+        },
+        {
+            "deviceId": "6a09da8a",
+            "name": "com.momo.Zain360",
+            "processId": 23297,
+            "exited": false
+        },
+        {
+            "deviceId": "6a09da8a",
+            "name": "com.momo.Zain360",
+            "processId": 698,
             "exited": false
         }
     ],

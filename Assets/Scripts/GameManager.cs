@@ -31,6 +31,9 @@ namespace Zain360
 
         public string address = "http://127.0.0.1:2021/socket.io/";
 
+        public GameObject person1;
+        public GameObject person2;
+
 
         private void Start()
         {
@@ -44,7 +47,7 @@ namespace Zain360
             rotateCamera.enabled = true;
 #endif
 
-            //UIManager.Instance.ChangePage(ePages.LOGIN_SIGNUP_PAGE);
+            UIManager.Instance.ChangePage(ePages.LOGIN_SIGNUP_PAGE);
 
             //StreamClassRoom("class01");
         }
@@ -90,11 +93,13 @@ namespace Zain360
 
         public void Login(string username, string password)
         {
-            Dictionary<string, object> userinfos = new Dictionary<string, object>();
-            userinfos["username"] = username;
-            userinfos["password"] = password;
+            UIManager.Instance.ChangePage(ePages.HOME_PAGE);
 
-            MultiplayerManager.Instance.CallServer("login", LoginResult, userinfos);
+            //Dictionary<string, object> userinfos = new Dictionary<string, object>();
+            //userinfos["username"] = username;
+            //userinfos["password"] = password;
+
+            //MultiplayerManager.Instance.CallServer("login", LoginResult, userinfos);
         }
 
         public void LoginResult(Socket socket, Packet packet, params object[] args)
@@ -149,6 +154,19 @@ namespace Zain360
                     print(retstatus);
                 }
             }
+        }
+
+
+        public void StudentSelected()
+        {
+            person1.SetActive(false);
+            person2.SetActive(true);
+        }
+
+        public void InstructorSelected()
+        {
+            person1.SetActive(true);
+            person2.SetActive(false);
         }
     }
 }

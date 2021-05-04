@@ -12,7 +12,23 @@ namespace Zain360
         public RenderTexture videoRenderTexture;
         public RawImage videoRenderImage;
 
+        private Vector2 videoRenderImageAnchorMin = Vector2.zero;
+        private Vector2 videoRenderImageAnchorMax = Vector2.zero;
+        private Vector2 videoRenderImageSizeDelta = Vector2.zero;
+        private Vector2 videoRenderImageAnchoredPos = Vector2.zero;
+
+        public Image fullScreenIndicator;
+        public bool fullscreen = false;
+
         public GameObject lookIndicator;
+
+        void Awake()
+        {
+            videoRenderImageAnchorMin = videoRenderImage.rectTransform.anchorMin;
+            videoRenderImageAnchorMax = videoRenderImage.rectTransform.anchorMax;
+            videoRenderImageSizeDelta = videoRenderImage.rectTransform.sizeDelta;
+            videoRenderImageAnchoredPos = videoRenderImage.rectTransform.anchoredPosition;
+        }
 
         public override void ShowPage()
         {
@@ -25,6 +41,7 @@ namespace Zain360
         {
             string roomName = PlayerPrefs.GetString("room_name");
 
+            fullScreenIndicator.gameObject.SetActive(false);
             lookIndicator.SetActive(true);
             videoRenderImage.texture = null;
 
@@ -38,13 +55,42 @@ namespace Zain360
             base.HidePage();
         }
 
-
         public void ShowCanvas()
         {
         }
 
         public void HideCanvas()
         {
+        }
+    
+        public void FullScreenClicked()
+        {
+            fullscreen = !fullscreen;
+
+            if(fullscreen)
+            {
+                SetFullScreen();
+            }
+            else
+            {
+                SetHalfScreen();
+            }
+        }
+
+        void SetFullScreen()
+        {
+            videoRenderImage.rectTransform.anchorMin = Vector2.zero;
+            videoRenderImage.rectTransform.anchorMax = Vector2.one;
+            videoRenderImage.rectTransform.sizeDelta = Vector2.zero;
+            videoRenderImage.rectTransform.anchoredPosition = Vector2.zero;
+        }
+
+        void SetHalfScreen()
+        {
+            videoRenderImage.rectTransform.anchorMin = videoRenderImageAnchorMin;
+            videoRenderImage.rectTransform.anchorMax = videoRenderImageAnchorMax;
+            videoRenderImage.rectTransform.sizeDelta = videoRenderImageSizeDelta;
+            videoRenderImage.rectTransform.anchoredPosition = videoRenderImageAnchoredPos;
         }
 
         public void PathPrepared(String path)
@@ -82,6 +128,8 @@ namespace Zain360
 
             videoRenderImage.texture = videoRenderTexture;
             lookIndicator.SetActive(false);
+
+            fullScreenIndicator.gameObject.SetActive(true);
 
             //HideCanvas();
         }
