@@ -19,7 +19,7 @@ namespace Zain360
 
         public static GameManager Instance;
 
-        public string ipAddress;
+        public string serverAddress;
         public UniversalMediaPlayer universalMediaPlayer;
 
         private Quaternion rot = new Quaternion(0, 1, 0, 1);
@@ -28,8 +28,6 @@ namespace Zain360
         public SimpleRotateSphere rotateCamera;
 
         private SocketManager socketManager;
-
-        public string address = "http://127.0.0.1:2021/socket.io/";
 
         public GameObject person1;
         public GameObject person2;
@@ -68,7 +66,7 @@ namespace Zain360
 
         public void StreamRoom(string classroomname)
         {
-            universalMediaPlayer.Path = "rtmp://" + ipAddress + "/live/" + classroomname;
+            universalMediaPlayer.Path = "rtmp://" + serverAddress + "/live/" + classroomname;
 //#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
 //            //universalMediaPlayer.Path = "http://" + ipAddress + "/dash/" + classroomname + ".mpd";
 //            universalMediaPlayer.Path = "rtmp://" + ipAddress + "/live/" + classroomname;
@@ -93,13 +91,11 @@ namespace Zain360
 
         public void Login(string username, string password)
         {
-            UIManager.Instance.ChangePage(ePages.HOME_PAGE);
+            Dictionary<string, object> userinfos = new Dictionary<string, object>();
+            userinfos["username"] = username;
+            userinfos["password"] = password;
 
-            //Dictionary<string, object> userinfos = new Dictionary<string, object>();
-            //userinfos["username"] = username;
-            //userinfos["password"] = password;
-
-            //MultiplayerManager.Instance.CallServer("login", LoginResult, userinfos);
+            MultiplayerManager.Instance.CallServer("login", LoginResult, userinfos);
         }
 
         public void LoginResult(Socket socket, Packet packet, params object[] args)

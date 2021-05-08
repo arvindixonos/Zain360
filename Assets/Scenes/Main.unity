@@ -4240,10 +4240,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgfadeSpeed: 10
   fadeInDelay: 1
-  firstnameField: {fileID: 0}
-  lastnameField: {fileID: 0}
-  su_usernameField: {fileID: 0}
-  su_passwordField: {fileID: 0}
+  firstnameField: {fileID: 353947025}
+  lastnameField: {fileID: 65389891}
+  su_usernameField: {fileID: 468745492}
+  su_passwordField: {fileID: 1109021364}
   lo_usernameField: {fileID: 135739449}
   lo_passwordField: {fileID: 546613843}
   signupPanel: {fileID: 291603335}
@@ -16554,11 +16554,10 @@ MonoBehaviour:
   domeMaterial: {fileID: 2100000, guid: a1d3513c88f742040b8d2e630b7d62c5, type: 2}
   UICanvas: {fileID: 271953908}
   updateText: {fileID: 0}
-  ipAddress: 77.232.100.197
+  serverAddress: '77.232.100.197 '
   universalMediaPlayer: {fileID: 222958439}
   gyroCamera: {fileID: 276571308}
   rotateCamera: {fileID: 276571311}
-  address: http://127.0.0.1:2021/socket.io/
   person1: {fileID: 643274685}
   person2: {fileID: 1725616764}
 --- !u!114 &2021075112
@@ -16593,7 +16592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03477dfef9fbf7f419163ae208f3cfb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  address: http://127.0.0.1:2021/socket.io/
+  address: http://77.232.100.197:2021/socket.io/
 --- !u!1 &2023900959
 GameObject:
   m_ObjectHideFlags: 0
