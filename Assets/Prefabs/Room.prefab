@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 1211071018300029859}
   - component: {fileID: 1211071018300029861}
   - component: {fileID: 1211071018300029860}
+  - component: {fileID: 2155839487909152454}
   m_Layer: 5
   m_Name: Room
   m_TagString: Untagged
@@ -318,6 +319,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2155839487909152454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211071018300029858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8fe46c73c408464291ad12e8d67d5fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomTitle: {fileID: 1211071017615003412}
+  roomDescription: {fileID: 1211071017437041327}
+  roomStatus: {fileID: 1211071019532233134}
+  joinRoomButton: {fileID: 461184698442139360}
+  editRoomButtom: {fileID: 461184698051389473}
 --- !u!1 &1211071018530995188
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,7 +917,7 @@ PrefabInstance:
     - target: {fileID: 4919692943709514897, guid: 6b94d8ab6d196ce4d9b4644b9ae23bc4,
         type: 3}
       propertyPath: m_Name
-      value: Zain Button
+      value: Join/Start Class
       objectReference: {fileID: 0}
     - target: {fileID: 8864987461793058499, guid: 6b94d8ab6d196ce4d9b4644b9ae23bc4,
         type: 3}
@@ -914,6 +932,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1211071018538740688}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &461184698442139360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1632805171047755056, guid: 6b94d8ab6d196ce4d9b4644b9ae23bc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1211071018538740688}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1211071019457578257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1039,7 +1069,7 @@ PrefabInstance:
     - target: {fileID: 4919692943709514897, guid: 6b94d8ab6d196ce4d9b4644b9ae23bc4,
         type: 3}
       propertyPath: m_Name
-      value: Zain Button (1)
+      value: Edit Room
       objectReference: {fileID: 0}
     - target: {fileID: 8864987461793058499, guid: 6b94d8ab6d196ce4d9b4644b9ae23bc4,
         type: 3}
@@ -1048,6 +1078,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b94d8ab6d196ce4d9b4644b9ae23bc4, type: 3}
+--- !u!114 &461184698051389473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1632805171047755056, guid: 6b94d8ab6d196ce4d9b4644b9ae23bc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1211071019457578257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6091351619617106305 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4919692943709514896, guid: 6b94d8ab6d196ce4d9b4644b9ae23bc4,

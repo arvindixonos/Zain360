@@ -29,6 +29,14 @@ namespace Zain360
 
         private SocketManager socketManager;
 
+
+        private bool student = true;
+        public bool isStudent
+        {
+            get { return student; }
+            set { student = value; }
+        }
+
         public GameObject person1;
         public GameObject person2;
 
@@ -93,11 +101,17 @@ namespace Zain360
             Instance = null;
         }        
 
+        public void Logout()
+        {
+            MultiplayerManager.Instance.CallServer("logout", null, null);
+        }
+
         public void Login(string username, string password)
         {
             Dictionary<string, object> userinfos = new Dictionary<string, object>();
             userinfos["username"] = username;
             userinfos["password"] = password;
+            userinfos["student"] = student ? 1 : 0;
 
             MultiplayerManager.Instance.CallServer("login", LoginResult, userinfos);
         }
@@ -129,6 +143,7 @@ namespace Zain360
             userinfos["lastname"] = lastname;
             userinfos["username"] = username;
             userinfos["password"] = password;
+            userinfos["student"] = student ? 1 : 0;
 
             MultiplayerManager.Instance.CallServer("signup", SignupResult, userinfos);
         }
@@ -159,12 +174,16 @@ namespace Zain360
 
         public void StudentSelected()
         {
+            student = true;
+
             person1.SetActive(false);
             person2.SetActive(true);
         }
 
         public void InstructorSelected()
         {
+            student = false;
+
             person1.SetActive(true);
             person2.SetActive(false);
         }

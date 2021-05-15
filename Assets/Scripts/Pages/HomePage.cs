@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BestHTTP.SocketIO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,12 +8,39 @@ namespace Zain360
 {
     public class HomePage : Page
     {
-        public GameObject   roomsHandle;
-        public GameObject   editRoomsHandle;
+        public GameObject roomsHandle;
+        public GameObject editRoomsHandle;
+
+        public Room[] rooms;
 
         public override void ShowPage()
         {
             base.ShowPage();
+
+            FetchRoomInfos();
+        }
+
+        private void FetchRoomInfos()
+        {
+            MultiplayerManager.Instance.CallServer("getallroomsinfo", RoomInfosResult, null);
+        }
+
+        public void RoomInfosResult(Socket socket, Packet packet, params object[] args)
+        {
+            Dictionary<string, object> retObjects = args[0] as Dictionary<string, object>;
+
+            int i = 0;
+            foreach (KeyValuePair<string, object> entry in retObjects)
+            {
+                Dictionary<string, object> objects = entry.Value as Dictionary<string, object>;
+                string roomTitle = objects["title"] as string;
+                string roomDescription = objects["description"] as string;
+                string roomStatus = objects["status"] as string;
+
+                rooms[i].SetRoom(roomTitle, roomDescription, roomStatus);
+
+                i++;
+            }
         }
 
         public override void HidePage()
@@ -30,6 +58,8 @@ namespace Zain360
 
         public void LogoutClicked()
         {
+            GameManager.Instance.Logout();
+
             UIManager.Instance.ChangePage(ePages.LOGIN_SIGNUP_PAGE);
         }
 
