@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _assetPath: Assets/UniversalMediaPlayer
   _useAudioSource: 0
-  _useExternalLibraries: 1
-  _librariesPath: C:\Program Files\VideoLAN\VLC\
-  _playersAndroid: 7
+  _useExternalLibraries: 0
+  _librariesPath: 
+  _playersAndroid: 3
   _playersIPhone: 3
   _androidExportedPaths: []
   _youtubeDecryptFunction: \bc\s*&&\s*d\.set\([^,]+\s*,[^(]*\(([a-zA-Z0-9$]+)\(

@@ -39,6 +39,10 @@ namespace Zain360
             Input.gyro.enabled = true;
             gyroCamera.enabled = true;
             rotateCamera.enabled = false;
+#elif UNITY_IOS && !UNITY_EDITOR
+            Input.gyro.enabled = true;
+            gyroCamera.enabled = true;
+            rotateCamera.enabled = false;
 #else
             Input.gyro.enabled = false;
             gyroCamera.enabled = false;
@@ -66,7 +70,7 @@ namespace Zain360
 
         public void StreamRoom(string classroomname)
         {
-            universalMediaPlayer.Path = "rtmp://" + serverAddress + "/live/" + classroomname;
+            //universalMediaPlayer.Path = "rtmp://" + serverAddress + "/live/" + classroomname;
 //#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
 //            //universalMediaPlayer.Path = "http://" + ipAddress + "/dash/" + classroomname + ".mpd";
 //            universalMediaPlayer.Path = "rtmp://" + ipAddress + "/live/" + classroomname;
