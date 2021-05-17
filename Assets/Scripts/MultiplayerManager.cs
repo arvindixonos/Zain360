@@ -55,7 +55,7 @@ namespace Zain360
 
             socketManager.Socket.On("otherchatmessage", (s, p, a) =>
             {
-
+                string message = a[0] as string;
             });
         }
 
