@@ -114,6 +114,11 @@ namespace Zain360
             userinfos["student"] = student ? 1 : 0;
 
             MultiplayerManager.Instance.CallServer("login", LoginResult, userinfos);
+
+
+            Dictionary<string, object> chatinfos = new Dictionary<string, object>();
+            chatinfos["message"] = "This is my chat message";
+            MultiplayerManager.Instance.CallServer("chatmessage", null, chatinfos);
         }
 
         public void LoginResult(Socket socket, Packet packet, params object[] args)

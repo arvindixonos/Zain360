@@ -1,4 +1,5 @@
 ﻿using BestHTTP.SocketIO;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,11 +34,12 @@ namespace Zain360
             foreach (KeyValuePair<string, object> entry in retObjects)
             {
                 Dictionary<string, object> objects = entry.Value as Dictionary<string, object>;
+                int roomID = Convert.ToInt32(objects["roomid"]);
                 string roomTitle = objects["title"] as string;
                 string roomDescription = objects["description"] as string;
                 string roomStatus = objects["status"] as string;
 
-                rooms[i].SetRoom(roomTitle, roomDescription, roomStatus);
+                rooms[i].SetRoom(roomID, roomTitle, roomDescription, roomStatus);
 
                 i++;
             }

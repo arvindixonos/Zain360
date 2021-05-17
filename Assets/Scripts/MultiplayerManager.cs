@@ -53,29 +53,10 @@ namespace Zain360
                 print("Disconnected from Zain360");
             });
 
-            socketManager.Socket.On("game_found", (s, p, a) =>
+            socketManager.Socket.On("otherchatmessage", (s, p, a) =>
             {
-            });
 
-            socketManager.Socket.On("start_session", (s, p, a) =>
-            {
             });
-
-            socketManager.Socket.On("game_over", (s, p, a) =>
-            {
-            });
-
-            socketManager.Socket.On("find_game_cancelled", (s, p, a) =>
-            {
-            });
-
-            socketManager.Socket.On("opponent_score", (s, p, a) =>
-            {
-            });
-
-            socketManager.Socket.On("opponent_message", (s, p, a) =>
-             {
-             });
         }
 
         public void CallServer(string eventName, SocketIOAckCallback callback = null, params object[] args)

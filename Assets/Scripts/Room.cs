@@ -8,6 +8,8 @@ namespace Zain360
 {
     public class Room : MonoBehaviour
     {
+        public int roomID;
+
         public Text roomTitle;
         public Text roomDescription;
         public Text roomStatus;
@@ -25,13 +27,9 @@ namespace Zain360
             joinRoomButtonText = joinRoomButton.GetComponentInChildren<Text>();
         }
 
-        public void TestCall()
+        public void SetRoom(int roomID, string title, string description, string status)
         {
-
-        }
-
-        public void SetRoom(string title, string description, string status)
-        {
+            this.roomID = roomID;
             roomTitle.text = title;
             roomDescription.text = description;
             roomStatus.text = status;
