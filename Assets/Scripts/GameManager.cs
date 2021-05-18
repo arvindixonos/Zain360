@@ -29,6 +29,7 @@ namespace Zain360
 
         private SocketManager socketManager;
 
+        public int currentSelectedRoomID = -1;
 
         private bool student = true;
         public bool isStudent
@@ -57,7 +58,7 @@ namespace Zain360
             rotateCamera.enabled = true;
 #endif
 
-            UIManager.Instance.ChangePage(ePages.LOGIN_SIGNUP_PAGE);
+            UIManager.Instance.ChangePage(ePages.VIDEO_PAGE);
 
             //StreamClassRoom("class01");
         }
@@ -116,9 +117,29 @@ namespace Zain360
             MultiplayerManager.Instance.CallServer("login", LoginResult, userinfos);
 
 
-            Dictionary<string, object> chatinfos = new Dictionary<string, object>();
-            chatinfos["message"] = "This is my chat message";
-            MultiplayerManager.Instance.CallServer("chatmessage", null, chatinfos);
+            //Dictionary<string, object> chatinfos = new Dictionary<string, object>();
+            //chatinfos["message"] = "This is my chat message";
+            //MultiplayerManager.Instance.CallServer("chatmessage", null, chatinfos);
+
+            MultiplayerManager.Instance.CallServer("getotherusernames", OtherUsersResult, null);
+        }
+
+        public void OtherUsersResult(Socket socket, Packet packet, params object[] args)
+        {
+            //Dictionary<string, object> retObjects = args[0] as Dictionary<string, object>;
+
+            foreach (List<object> username in args)
+            {
+                if (username.Count > 0)
+                {
+                    print(username[0].ToString());
+                }
+            }
+
+            //if (retObjects.Count > 0)
+            //{
+                
+            //}
         }
 
         public void LoginResult(Socket socket, Packet packet, params object[] args)

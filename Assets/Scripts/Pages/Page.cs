@@ -26,6 +26,11 @@ namespace Zain360
         {
         }
 
+        public virtual void Start()
+        {
+
+        }
+
         public virtual void ShowPage()
         {
             canvasGroup.DOFade(1f, 0.5f);

@@ -10,9 +10,11 @@ namespace Zain360
     public class HomePage : Page
     {
         public GameObject roomsHandle;
-        public GameObject editRoomsHandle;
+        public EditRoom editRoomsHandle;
 
         public Room[] rooms;
+
+        
 
         public override void ShowPage()
         {
@@ -30,6 +32,11 @@ namespace Zain360
         {
             Dictionary<string, object> retObjects = args[0] as Dictionary<string, object>;
 
+            FillRooms(retObjects);
+        }
+
+        public void FillRooms(Dictionary<string, object> retObjects)
+        {
             int i = 0;
             foreach (KeyValuePair<string, object> entry in retObjects)
             {
@@ -38,7 +45,6 @@ namespace Zain360
                 string roomTitle = objects["title"] as string;
                 string roomDescription = objects["description"] as string;
                 string roomStatus = objects["status"] as string;
-
                 rooms[i].SetRoom(roomID, roomTitle, roomDescription, roomStatus);
 
                 i++;
@@ -50,12 +56,20 @@ namespace Zain360
             base.HidePage();
         }
 
-        public void JoinRoomClicked()
+        public void JoinRoomClicked(int roomid)
         {
-            PlayerPrefs.SetString("room_name", "class01");
-            PlayerPrefs.Save();
+            Dictionary<string, object> roomDetails = new Dictionary<string, object>();
+            roomDetails["roomid"] = roomid;
+            MultiplayerManager.Instance.CallServer("joinroom", null, roomDetails);
+
+            if (!GameManager.Instance.isStudent)
+            {
+                MultiplayerManager.Instance.CallServer("setroomstreaming", null, roomDetails);
+            }
 
             UIManager.Instance.ChangePage(ePages.VIDEO_PAGE);
+
+            UIManager.Instance.SendMessageToCurrentPage("StartStreaming", roomid);
         }
 
         public void LogoutClicked()
@@ -65,16 +79,36 @@ namespace Zain360
             UIManager.Instance.ChangePage(ePages.LOGIN_SIGNUP_PAGE);
         }
 
-        public void EditRoomClicked()
+        public void EditRoomClicked(int roomid)
         {
+            GameManager.Instance.currentSelectedRoomID = roomid;
+
             roomsHandle.SetActive(false);
-            editRoomsHandle.SetActive(true);
+            editRoomsHandle.gameObject.SetActive(true);
+        }
+
+        private Dictionary<string, object> GetCurrentSelectedRoomDetails()
+        {
+            Dictionary<string, object> roomDetails = new Dictionary<string, object>();
+            roomDetails["roomid"] = GameManager.Instance.currentSelectedRoomID;
+            roomDetails["title"] = editRoomsHandle.roomTitle.text;
+            roomDetails["description"] = editRoomsHandle.roomDescription.text;
+
+            return roomDetails;
         }
 
         public void SaveDetailsClicked()
         {
+            MultiplayerManager.Instance.CallServer("setroomsinfo", SavedRoomInfoResult, GetCurrentSelectedRoomDetails());
+        }
+
+        public void SavedRoomInfoResult(Socket socket, Packet packet, params object[] args)
+        {
             roomsHandle.SetActive(true);
-            editRoomsHandle.SetActive(false);
+            editRoomsHandle.gameObject.SetActive(false);
+
+            Dictionary<string, object> retObjects = args[0] as Dictionary<string, object>;
+            FillRooms(retObjects);
         }
     }
 }

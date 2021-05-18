@@ -331,11 +331,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8fe46c73c408464291ad12e8d67d5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomID: 0
   roomTitle: {fileID: 1211071017615003412}
   roomDescription: {fileID: 1211071017437041327}
   roomStatus: {fileID: 1211071019532233134}
   joinRoomButton: {fileID: 461184698442139360}
   editRoomButtom: {fileID: 461184698051389473}
+  buttonTextSelectedColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonTextDisabledColor: {r: 0, g: 0, b: 0, a: 0}
+  statusIndicatorText: {fileID: 1211071019532233134}
+  statusIndicator: {fileID: 1211071018671180843}
+  availableStatusSprite: {fileID: 21300000, guid: 141ac0dae78237346b285379b1ae62e4,
+    type: 3}
+  streamingStatusSprite: {fileID: 21300000, guid: 0ae438457f4feef4d893e1e0a37ff182,
+    type: 3}
 --- !u!1 &1211071018530995188
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +960,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1211071018300029859}
     m_Modifications:
+    - target: {fileID: 1632805171047755056, guid: 6b94d8ab6d196ce4d9b4644b9ae23bc4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2155839487909152454}
+    - target: {fileID: 1632805171047755056, guid: 6b94d8ab6d196ce4d9b4644b9ae23bc4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EditRoomClicked
+      objectReference: {fileID: 0}
     - target: {fileID: 4919692943709514896, guid: 6b94d8ab6d196ce4d9b4644b9ae23bc4,
         type: 3}
       propertyPath: m_Pivot.x
