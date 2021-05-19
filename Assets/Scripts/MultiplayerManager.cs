@@ -59,6 +59,13 @@ namespace Zain360
 
                 UIManager.Instance.SendMessageToCurrentPage("OpponentMessageReceived", message);
             });
+
+            socketManager.Socket.On("allroomusers", (s, p, a) =>
+            {
+                string message = a[0] as string;
+
+                //UIManager.Instance.SendMessageToCurrentPage("OpponentMessageReceived", message);
+            });
         }
 
         public void CallServer(string eventName, SocketIOAckCallback callback = null, params object[] args)

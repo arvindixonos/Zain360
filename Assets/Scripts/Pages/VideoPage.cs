@@ -27,6 +27,10 @@ namespace Zain360
 
 
         public ChatDelegate chatDelegate;
+        public ParticipantDelegate participantDelegate;
+
+        public GameObject participantWindow;
+        public Toggle participantToggle;
 
         public GameObject chatWindow;
         public Toggle chatToggle;
@@ -44,6 +48,8 @@ namespace Zain360
             base.Start();
 
             chatWindow.gameObject.SetActive(false);
+
+            participantWindow.gameObject.SetActive(false);
         }
 
         
@@ -196,6 +202,18 @@ namespace Zain360
             else
             {
                 chatWindow.gameObject.SetActive(false);
+            }
+        }
+
+        public void ParticipantToggled()
+        {
+            if (participantToggle.isOn)
+            {
+                participantWindow.gameObject.SetActive(true);
+            }
+            else
+            {
+                participantWindow.gameObject.SetActive(false);
             }
         }
 

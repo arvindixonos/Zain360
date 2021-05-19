@@ -4958,6 +4958,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504160470}
   m_CullTransparentMesh: 0
+--- !u!114 &504801409 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1233827275}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &542356331
 GameObject:
   m_ObjectHideFlags: 0
@@ -8584,13 +8596,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 882875711}
+  - component: {fileID: 882875712}
   m_Layer: 5
   m_Name: Participant Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &882875711
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8611,6 +8624,20 @@ RectTransform:
   m_AnchoredPosition: {x: 799.1911, y: 0.0014038086}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &882875712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882875710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21cfeed33958a941bc4adb98788d330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scroller: {fileID: 6755945258452800534}
+  cellViewPrefab: {fileID: 11422766, guid: 2ba94559020ee8b4ba101831b9d219fe, type: 3}
 --- !u!1 &884545998
 GameObject:
   m_ObjectHideFlags: 0
@@ -8708,7 +8735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &895753956
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11248,6 +11275,9 @@ MonoBehaviour:
   fullscreen: 0
   lookIndicator: {fileID: 88130755}
   chatDelegate: {fileID: 895753957}
+  participantDelegate: {fileID: 882875712}
+  participantWindow: {fileID: 882875710}
+  participantToggle: {fileID: 504801409}
   chatWindow: {fileID: 895753955}
   chatToggle: {fileID: 1810616206}
 --- !u!225 &1146162294
@@ -11258,7 +11288,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146162291}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -12573,6 +12603,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsOn
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1146162293}
+    - target: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ParticipantToggled
+      objectReference: {fileID: 0}
+    - target: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 179963886123342214, guid: 378f2e48613983b4ea28439622b79ca0,
         type: 3}
