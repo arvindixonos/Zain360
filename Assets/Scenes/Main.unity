@@ -11195,7 +11195,7 @@ MonoBehaviour:
     type: 3}
   otherTextCellViewPrefab: {fileID: 151473921020266837, guid: 92e099a51e6974f80bd4926f5a138472,
     type: 3}
-  spacerCellViewPrefab: {fileID: 3687533178484346257, guid: 6a6a0582cca824522a219ef6ab9ffd4b,
+  spacerCellViewPrefab: {fileID: 1049343339634825562, guid: 6a6a0582cca824522a219ef6ab9ffd4b,
     type: 3}
   chatWindow: {fileID: 895753955}
   chatToggle: {fileID: 1810616206}
