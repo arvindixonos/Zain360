@@ -52,11 +52,7 @@ public class UMPPostBuilds : MonoBehaviour
         var pbxProject = new PBXProject();
         pbxProject.ReadFromString(File.ReadAllText(projPath));
 
-#if UNITY_2019_3_OR_NEWER
-        var target = pbxProject.GetUnityFrameworkTargetGuid();
-#else
-        var target = pbxProject.TargetGuidByName( PBXProject.GetUnityTargetName() );
-#endif
+        var target = pbxProject.TargetGuidByName("Unity-iPhone");
 
         // Activate Background Mode for Audio
         string plistPath = path + "/Info.plist";

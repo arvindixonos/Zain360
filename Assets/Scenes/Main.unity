@@ -2760,7 +2760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _chosenPlatform
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _networkCaching
@@ -16999,7 +16999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03477dfef9fbf7f419163ae208f3cfb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  address: http://127.0.0.1:2021/socket.io/
+  address: http://77.232.100.197:2021/socket.io/
 --- !u!1 &2023900959
 GameObject:
   m_ObjectHideFlags: 0

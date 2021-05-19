@@ -16,7 +16,7 @@ MonoBehaviour:
   _useAudioSource: 0
   _useExternalLibraries: 1
   _librariesPath: C:\Program Files\VideoLAN\VLC\
-  _playersAndroid: 3
+  _playersAndroid: 7
   _playersIPhone: 3
   _androidExportedPaths: []
   _youtubeDecryptFunction: \bc\s*&&\s*d\.set\([^,]+\s*,[^(]*\(([a-zA-Z0-9$]+)\(

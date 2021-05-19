@@ -80,11 +80,11 @@ namespace Zain360
         public void StreamRoom(string classroomname)
         {
             //universalMediaPlayer.Path = "rtmp://" + serverAddress + "/live/" + classroomname;
-//#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-//            //universalMediaPlayer.Path = "http://" + ipAddress + "/dash/" + classroomname + ".mpd";
-//            universalMediaPlayer.Path = "rtmp://" + ipAddress + "/live/" + classroomname;
-//#elif UNITY_ANDROID
-//            universalMediaPlayer.Path = "http://" + ipAddress + "/hls/" + classroomname + ".m3u8";
+            //#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+            //            //universalMediaPlayer.Path = "http://" + ipAddress + "/dash/" + classroomname + ".mpd";
+            //            universalMediaPlayer.Path = "rtmp://" + ipAddress + "/live/" + classroomname;
+//#if UNITY_ANDROID
+//            universalMediaPlayer.Path = "http://77.232.100.197/hls/class01.m3u8";
 //#endif
             universalMediaPlayer.Play();
         }
