@@ -239,6 +239,11 @@ namespace Zain360
             // add a chat row from us
             AddNewRow(Data.CellType.MyText, myInputField.text);
 
+            Dictionary<string, object> messageInfos = new Dictionary<string, object>();
+            messageInfos["username"] = currentRoomID;
+            messageInfos["message"] = myInputField.text;
+            MultiplayerManager.Instance.CallServer("chatmessage", null, messageInfos);
+
             // clear the input field and focus on it
             myInputField.text = "";
             myInputField.ActivateInputField();
