@@ -2,6 +2,7 @@
 using System.Collections;
 using EnhancedUI;
 using EnhancedUI.EnhancedScroller;
+using Zain360;
 
 namespace EnhancedScrollerDemos.SuperSimpleDemo
 {
@@ -19,7 +20,7 @@ namespace EnhancedScrollerDemos.SuperSimpleDemo
         /// Internal representation of our data. Note that the scroller will never see
         /// this, so it separates the data from the layout using MVC principles.
         /// </summary>
-        private SmallList<Data> _data;
+        private SmallList<DataParticipant> _data;
 
         /// <summary>
         /// This is our scroller we will be a delegate for
@@ -56,9 +57,9 @@ namespace EnhancedScrollerDemos.SuperSimpleDemo
         private void LoadLargeData()
         {
             // set up some simple data
-            _data = new SmallList<Data>();
+            _data = new SmallList<DataParticipant>();
             for (var i = 0; i < 1000; i++)
-                _data.Add(new Data() { someText = "Cell Data Index " + i.ToString() });
+                _data.Add(new DataParticipant() { someText = "Cell Data Index " + i.ToString() });
 
             // tell the scroller to reload now that we have the data
             scroller.ReloadData();
@@ -70,11 +71,11 @@ namespace EnhancedScrollerDemos.SuperSimpleDemo
         private void LoadSmallData()
         {
             // set up some simple data
-            _data = new SmallList<Data>();
+            _data = new SmallList<DataParticipant>();
 
-            _data.Add(new Data() { someText = "A" });
-            _data.Add(new Data() { someText = "B" });
-            _data.Add(new Data() { someText = "C" });
+            _data.Add(new DataParticipant() { someText = "A" });
+            _data.Add(new DataParticipant() { someText = "B" });
+            _data.Add(new DataParticipant() { someText = "C" });
 
             // tell the scroller to reload now that we have the data
             scroller.ReloadData();
@@ -140,7 +141,7 @@ namespace EnhancedScrollerDemos.SuperSimpleDemo
             // first, we get a cell from the scroller by passing a prefab.
             // if the scroller finds one it can recycle it will do so, otherwise
             // it will create a new cell.
-            CellView cellView = scroller.GetCellView(cellViewPrefab) as CellView;
+            CellViewParticipant cellView = scroller.GetCellView(cellViewPrefab) as CellViewParticipant;
 
             // set the name of the game object to the cell's data index.
             // this is optional, but it helps up debug the objects in 

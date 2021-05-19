@@ -26,7 +26,7 @@ namespace Zain360
         /// </summary>
         public RectOffset textBuffer;
 
-        public void SetData(Data data, bool calculateLayout)
+        public void SetData(DataChat data, bool calculateLayout)
         {
             someTextText.text = data.someText;
 

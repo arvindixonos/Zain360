@@ -29,7 +29,7 @@ namespace Zain360
         /// Internal representation of our data. Note that the scroller will never see
         /// this, so it separates the data from the layout using MVC principles.
         /// </summary>
-        private List<Data> _data;
+        private List<DataChat> _data;
 
         /// <summary>
         /// This member tells the scroller that we need
@@ -96,8 +96,8 @@ namespace Zain360
 
             // set up a single data item containing the spacer
             // this pushes the cells down to the bottom
-            _data = new List<Data>();
-            _data.Add(new Data() { cellType = Data.CellType.Spacer });
+            _data = new List<DataChat>();
+            _data.Add(new DataChat() { cellType = DataChat.CellType.Spacer });
 
             // call resize scroller to calculate and set up the scroll
             ResizeScroller();
@@ -108,7 +108,7 @@ namespace Zain360
             chatWindow.gameObject.SetActive(false);
         }
 
-        public void AddNewRow(Data.CellType cellType, string text)
+        public void AddNewRow(DataChat.CellType cellType, string text)
         {
             // first, clear out the cells in the scroller so the new text transforms will be reset
             scroller.ClearAll();
@@ -125,7 +125,7 @@ namespace Zain360
             }
 
             // now we can add the data row
-            _data.Add(new Data()
+            _data.Add(new DataChat()
             {
                 cellType = cellType,
                 cellSize = 0,
@@ -241,7 +241,7 @@ namespace Zain360
         public void SendButtonClicked()
         {
             // add a chat row from us
-            AddNewRow(Data.CellType.MyText, myInputField.text);
+            AddNewRow(DataChat.CellType.MyText, myInputField.text);
 
             Dictionary<string, object> messageInfos = new Dictionary<string, object>();
             messageInfos["roomid"] = currentRoomID;
@@ -394,7 +394,7 @@ namespace Zain360
             {
                 // this is a chat cell
 
-                if (_data[dataIndex].cellType == Data.CellType.MyText)
+                if (_data[dataIndex].cellType == DataChat.CellType.MyText)
                 {
                     // this is one of our chat cells
                     cellView = scroller.GetCellView(myTextCellViewPrefab) as CellViewChat;
@@ -419,7 +419,7 @@ namespace Zain360
 
         void OpponentMessageReceived(string message)
         {
-            AddNewRow(Data.CellType.OtherText, message);
+            AddNewRow(DataChat.CellType.OtherText, message);
         }
 
         public void ChatToggled()
