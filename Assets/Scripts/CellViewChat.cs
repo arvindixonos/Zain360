@@ -2,12 +2,12 @@
 using UnityEngine.UI;
 using EnhancedUI.EnhancedScroller;
 
-namespace EnhancedScrollerDemos.Chat
+namespace Zain360
 {
     /// <summary>
     /// This is the view of our cell which handles how the cell looks.
     /// </summary>
-    public class CellView : EnhancedScrollerCellView
+    public class CellViewChat : EnhancedScrollerCellView
     {
         /// <summary>
         /// A reference to the UI Text element to display the cell data

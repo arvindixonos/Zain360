@@ -1,5 +1,4 @@
-﻿using EnhancedScrollerDemos.Chat;
-using EnhancedUI.EnhancedScroller;
+﻿using EnhancedUI.EnhancedScroller;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -383,12 +382,12 @@ namespace Zain360
         /// <returns></returns>
         public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
         {
-            CellView cellView;
+            CellViewChat cellView;
 
             if (dataIndex == 0)
             {
                 // this is the first spacer cell
-                cellView = scroller.GetCellView(spacerCellViewPrefab) as CellView;
+                cellView = scroller.GetCellView(spacerCellViewPrefab) as CellViewChat;
                 cellView.name = "Spacer";
             }
             else
@@ -398,12 +397,12 @@ namespace Zain360
                 if (_data[dataIndex].cellType == Data.CellType.MyText)
                 {
                     // this is one of our chat cells
-                    cellView = scroller.GetCellView(myTextCellViewPrefab) as CellView;
+                    cellView = scroller.GetCellView(myTextCellViewPrefab) as CellViewChat;
                 }
                 else
                 {
                     // this is a chat cell from another person
-                    cellView = scroller.GetCellView(otherTextCellViewPrefab) as CellView;
+                    cellView = scroller.GetCellView(otherTextCellViewPrefab) as CellViewChat;
                 }
 
                 // set the cell's game object name. Not necessary, but nice for debugging.

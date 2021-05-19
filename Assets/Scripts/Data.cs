@@ -1,4 +1,4 @@
-﻿namespace EnhancedScrollerDemos.Chat
+﻿namespace Zain360
 {
     /// <summary>
     /// Super simple data class to hold information for each cell.

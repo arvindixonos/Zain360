@@ -11191,9 +11191,9 @@ MonoBehaviour:
   lookIndicator: {fileID: 88130755}
   scroller: {fileID: 2887806926171985289}
   myInputField: {fileID: 2887806925885676719}
-  myTextCellViewPrefab: {fileID: -5531915822428056557, guid: da81c3145bb5742daa85f361f0e5ee4c,
+  myTextCellViewPrefab: {fileID: 1832507064030810236, guid: da81c3145bb5742daa85f361f0e5ee4c,
     type: 3}
-  otherTextCellViewPrefab: {fileID: -5531915822428056557, guid: 92e099a51e6974f80bd4926f5a138472,
+  otherTextCellViewPrefab: {fileID: 151473921020266837, guid: 92e099a51e6974f80bd4926f5a138472,
     type: 3}
   spacerCellViewPrefab: {fileID: 3687533178484346257, guid: 6a6a0582cca824522a219ef6ab9ffd4b,
     type: 3}
