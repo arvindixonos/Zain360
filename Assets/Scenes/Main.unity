@@ -8656,6 +8656,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884545998}
   m_CullTransparentMesh: 0
+--- !u!1 &895753955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 895753956}
+  m_Layer: 5
+  m_Name: Chat Window
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &895753956
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895753955}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2887806925819225837}
+  - {fileID: 2887806926171985285}
+  m_Father: {fileID: 1146162292}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &896815192
 GameObject:
   m_ObjectHideFlags: 0
@@ -11124,8 +11161,7 @@ RectTransform:
   - {fileID: 327910982}
   - {fileID: 1681955746}
   - {fileID: 102329302}
-  - {fileID: 2887806926171985285}
-  - {fileID: 2887806925819225837}
+  - {fileID: 895753956}
   m_Father: {fileID: 271953909}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11161,6 +11197,8 @@ MonoBehaviour:
     type: 3}
   spacerCellViewPrefab: {fileID: 3687533178484346257, guid: 6a6a0582cca824522a219ef6ab9ffd4b,
     type: 3}
+  chatWindow: {fileID: 895753955}
+  chatToggle: {fileID: 0}
 --- !u!225 &1146162294
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -17489,6 +17527,36 @@ PrefabInstance:
       propertyPath: m_IsOn
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1146162293}
+    - target: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChatToggled
+      objectReference: {fileID: 0}
+    - target: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 179963886123342214, guid: 378f2e48613983b4ea28439622b79ca0,
         type: 3}
       propertyPath: m_Name
@@ -20584,12 +20652,12 @@ RectTransform:
   m_Children:
   - {fileID: 2887806924810195450}
   - {fileID: 2887806925885676688}
-  m_Father: {fileID: 1146162292}
-  m_RootOrder: 10
+  m_Father: {fileID: 895753956}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -161.5, y: 43.057007}
+  m_AnchoredPosition: {x: 748.58826, y: -446.943}
   m_SizeDelta: {x: 323, y: 86.1145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2887806925819225838
@@ -20942,13 +21010,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2887806924871930572}
-  m_Father: {fileID: 1146162292}
-  m_RootOrder: 9
+  m_Father: {fileID: 895753956}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1758.9, y: 43.057007}
-  m_SizeDelta: {x: 323, y: -86.11426}
+  m_AnchoredPosition: {x: 848.8118, y: 43.057007}
+  m_SizeDelta: {x: 323, y: 893.88574}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2887806926171985286
 CanvasRenderer:

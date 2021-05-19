@@ -77,6 +77,9 @@ namespace Zain360
         /// </summary>
         public EnhancedScrollerCellView spacerCellViewPrefab;
 
+        public GameObject chatWindow;
+        public Toggle chatToggle;
+
         void Awake()
         {
             videoRenderImageAnchorMin = videoRenderImage.rectTransform.anchorMin;
@@ -416,6 +419,18 @@ namespace Zain360
         void OpponentMessageReceived(string message)
         {
             AddNewRow(Data.CellType.OtherText, message);
+        }
+
+        public void ChatToggled()
+        {
+            if(chatToggle.isOn)
+            {
+                chatWindow.gameObject.SetActive(true);
+            }
+            else
+            {
+                chatWindow.gameObject.SetActive(false);
+            }
         }
 
         //void Update()
