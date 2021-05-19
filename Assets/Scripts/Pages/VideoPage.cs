@@ -240,7 +240,7 @@ namespace Zain360
             AddNewRow(Data.CellType.MyText, myInputField.text);
 
             Dictionary<string, object> messageInfos = new Dictionary<string, object>();
-            messageInfos["username"] = currentRoomID;
+            messageInfos["roomid"] = currentRoomID;
             messageInfos["message"] = myInputField.text;
             MultiplayerManager.Instance.CallServer("chatmessage", null, messageInfos);
 
