@@ -40,6 +40,8 @@ namespace Zain360
         {
             // tell the scroller that this script will be its delegate
             scroller.Delegate = this;
+
+            _data = new SmallList<DataParticipant>();
         }
 
         /// <summary>
