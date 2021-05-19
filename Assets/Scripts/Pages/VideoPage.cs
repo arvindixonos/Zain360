@@ -193,6 +193,11 @@ namespace Zain360
             chatDelegate.OpponentMessageReceived(message);
         }
 
+        void ParticipantsListReceived(List<string> participantsListReceived)
+        {
+            participantDelegate.ParticipantsListReceived(participantsListReceived);
+        }
+
         public void ChatToggled()
         {
             if(chatToggle.isOn)

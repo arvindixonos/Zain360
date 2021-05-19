@@ -2,6 +2,7 @@
 using System;
 using BestHTTP.SocketIO;
 using BestHTTP.SocketIO.Events;
+using System.Collections.Generic;
 
 namespace Zain360
 {
@@ -62,9 +63,18 @@ namespace Zain360
 
             socketManager.Socket.On("allroomusers", (s, p, a) =>
             {
-                string message = a[0] as string;
+                Dictionary<string, object> roomusers = a[0] as Dictionary<string, object>;
 
-                //UIManager.Instance.SendMessageToCurrentPage("OpponentMessageReceived", message);
+                List<string> usernames = new List<string>();
+
+                foreach(KeyValuePair<string, object> roomuser in roomusers)
+                {
+                    Dictionary<string, object> userinfo = roomuser.Value as Dictionary<string, object>;
+
+                    usernames.Add(userinfo["username"] as string);
+                }
+
+                UIManager.Instance.SendMessageToCurrentPage("ParticipantsListReceived", usernames);
             });
         }
 

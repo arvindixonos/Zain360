@@ -47,12 +47,14 @@ namespace Zain360
         /// <summary>
         /// Populates the data with a small set of records
         /// </summary>
-        private void AddParticipant(string participantName)
+        public void ParticipantsListReceived(List<string> participantsList)
         {
-            // set up some simple data
             _data = new SmallList<DataParticipant>();
 
-            _data.Add(new DataParticipant() { someText = participantName });
+            foreach (string participantName in participantsList)
+            {
+                _data.Add(new DataParticipant() { someText = participantName });
+            }
 
             // tell the scroller to reload now that we have the data
             scroller.ReloadData();
