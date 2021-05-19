@@ -11247,7 +11247,7 @@ MonoBehaviour:
   fullScreenIndicator: {fileID: 325755653}
   fullscreen: 0
   lookIndicator: {fileID: 88130755}
-  chatDelegate: {fileID: 0}
+  chatDelegate: {fileID: 895753957}
   chatWindow: {fileID: 895753955}
   chatToggle: {fileID: 1810616206}
 --- !u!225 &1146162294
