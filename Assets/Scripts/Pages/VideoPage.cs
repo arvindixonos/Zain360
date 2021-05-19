@@ -105,6 +105,8 @@ namespace Zain360
 
             // focus on the chat input field
             myInputField.ActivateInputField();
+
+            chatWindow.gameObject.SetActive(false);
         }
 
         public void AddNewRow(Data.CellType cellType, string text)
