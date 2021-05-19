@@ -2167,7 +2167,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: http://clips.vorwaerts-gmbh.d
+  m_Text: http://clips.vorwaerts-gmbh.de/VfE_html5.mp4
 --- !u!222 &854297858
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4967,7 +4967,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: http://clips.vorwaerts-gmbh.d
+  m_Text: http://clips.vorwaerts-gmbh.de/VfE_html5.mp4
 --- !u!222 &1554567244
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -276,7 +276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _path
-      value: rtmp://77.232.100.197/live/class01
+      value: https://www.youtube.com/watch?v=G-XZhKqQAHU
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _volume

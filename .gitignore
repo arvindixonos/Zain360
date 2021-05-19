@@ -11,6 +11,7 @@
 /[Mm]emoryCaptures/
 /TestBuild/
 /iOSBuild/
+/Zain360_PC_Build_V4/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
