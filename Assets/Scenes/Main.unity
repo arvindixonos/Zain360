@@ -11198,7 +11198,7 @@ MonoBehaviour:
   spacerCellViewPrefab: {fileID: 3687533178484346257, guid: 6a6a0582cca824522a219ef6ab9ffd4b,
     type: 3}
   chatWindow: {fileID: 895753955}
-  chatToggle: {fileID: 0}
+  chatToggle: {fileID: 1810616206}
 --- !u!225 &1146162294
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -15031,6 +15031,18 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 597409918884292874, guid: 73e0be349379aa34ba11cd754bc72b01,
     type: 3}
   m_PrefabInstance: {fileID: 1857309778}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1810616206 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2105971915}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
