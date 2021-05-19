@@ -8590,7 +8590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &882875711
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11226,14 +11226,7 @@ MonoBehaviour:
   fullScreenIndicator: {fileID: 325755653}
   fullscreen: 0
   lookIndicator: {fileID: 88130755}
-  scroller: {fileID: 2887806926171985289}
-  myInputField: {fileID: 2887806925885676719}
-  myTextCellViewPrefab: {fileID: 1832507064030810236, guid: da81c3145bb5742daa85f361f0e5ee4c,
-    type: 3}
-  otherTextCellViewPrefab: {fileID: 151473921020266837, guid: 92e099a51e6974f80bd4926f5a138472,
-    type: 3}
-  spacerCellViewPrefab: {fileID: 1049343339634825562, guid: 6a6a0582cca824522a219ef6ab9ffd4b,
-    type: 3}
+  chatDelegate: {fileID: 0}
   chatWindow: {fileID: 895753955}
   chatToggle: {fileID: 1810616206}
 --- !u!225 &1146162294
@@ -11244,7 +11237,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146162291}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
