@@ -418,12 +418,12 @@ namespace Zain360
             AddNewRow(Data.CellType.OtherText, message);
         }
 
-        void Update()
-        {
-            if(Input.GetKeyUp(KeyCode.Space))
-            {
-                AddNewRow(Data.CellType.OtherText, "This is the new text which i want to be really really big to just test the next line");
-            }
-        }
+        //void Update()
+        //{
+        //    if(Input.GetKeyUp(KeyCode.Space))
+        //    {
+        //        AddNewRow(Data.CellType.OtherText, "This is the new text which i want to be really really big to just test the next line");
+        //    }
+        //}
     }
 }
