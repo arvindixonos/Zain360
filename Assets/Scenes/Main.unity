@@ -3470,16 +3470,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296007052}
   m_CullTransparentMesh: 0
---- !u!114 &298621710 stripped
+--- !u!114 &298621711 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 597409918884292875, guid: 73e0be349379aa34ba11cd754bc72b01,
+  m_CorrespondingSourceObject: {fileID: 597409918884292874, guid: 73e0be349379aa34ba11cd754bc72b01,
     type: 3}
   m_PrefabInstance: {fileID: 961602744}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ede548fbadeab249afa05dcea407819, type: 3}
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &302838291
@@ -6770,18 +6770,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &689214127 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 597409918884292875, guid: 73e0be349379aa34ba11cd754bc72b01,
-    type: 3}
-  m_PrefabInstance: {fileID: 689214124}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ede548fbadeab249afa05dcea407819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &689705016 stripped
@@ -12601,8 +12589,8 @@ MonoBehaviour:
   usernameText: {fileID: 2020543337}
   classTitleText: {fileID: 977072329}
   chatParticipantWindow: {fileID: 882875711}
-  chatToggle: {fileID: 689214127}
-  participantToggle: {fileID: 298621710}
+  chatToggle: {fileID: 2059468428}
+  participantToggle: {fileID: 298621711}
 --- !u!225 &1146162294
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -12611,7 +12599,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146162291}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -14149,7 +14137,7 @@ PrefabInstance:
     - target: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ParticipantToggled
+      value: ParticipantClicked
       objectReference: {fileID: 0}
     - target: {fileID: 179963886123342208, guid: 378f2e48613983b4ea28439622b79ca0,
         type: 3}
@@ -19022,6 +19010,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055809740}
   m_CullTransparentMesh: 0
+--- !u!114 &2059468428 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 597409918884292874, guid: 73e0be349379aa34ba11cd754bc72b01,
+    type: 3}
+  m_PrefabInstance: {fileID: 689214124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2064279088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19450,7 +19450,7 @@ PrefabInstance:
     - target: {fileID: 179963886123342214, guid: 378f2e48613983b4ea28439622b79ca0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 179963886123342215, guid: 378f2e48613983b4ea28439622b79ca0,
         type: 3}
