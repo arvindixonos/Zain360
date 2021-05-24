@@ -71,7 +71,9 @@ namespace Zain360
                 {
                     Dictionary<string, object> userinfo = roomuser.Value as Dictionary<string, object>;
 
-                    usernames.Add(userinfo["username"] as string);
+                    string combinedName = userinfo["firstname"] as string + " " + userinfo["lastname"] as string;
+
+                    usernames.Add(combinedName);
                 }
 
                 UIManager.Instance.SendMessageToCurrentPage("ParticipantsListReceived", usernames);

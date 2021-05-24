@@ -14,13 +14,12 @@ namespace Zain360
         public Text roomDescription;
         public Text roomStatus;
 
-        public Button joinRoomButton;
+        public Button joinClassButton;
+        public Button startClassButton;
         public Button editRoomButtom;
 
         public Color buttonTextSelectedColor;
         public Color buttonTextDisabledColor;
-
-        private Text joinRoomButtonText;
 
         public Text statusIndicatorText;
         public Image statusIndicator;
@@ -31,7 +30,6 @@ namespace Zain360
 
         private void Awake()
         {
-            joinRoomButtonText = joinRoomButton.GetComponentInChildren<Text>();
         }
 
         public void SetRoom(int roomID, string title, string description, string status)
@@ -43,8 +41,9 @@ namespace Zain360
 
             if (GameManager.Instance.isStudent)
             {
-                joinRoomButtonText.text = "Join Class";
+                startClassButton.gameObject.SetActive(false);
                 editRoomButtom.gameObject.SetActive(false);
+                joinClassButton.gameObject.SetActive(true);
 
                 if (status == "Streaming")
                 {
@@ -60,12 +59,15 @@ namespace Zain360
             {
                 gameObject.SetActive(true);
 
+                startClassButton.gameObject.SetActive(true);
+                editRoomButtom.gameObject.SetActive(true);
+                joinClassButton.gameObject.SetActive(false);
+
                 if (status == "Streaming")
                 {
                     statusIndicator.sprite = streamingStatusSprite;
 
-                    joinRoomButtonText.text = "Start Class";
-                    joinRoomButton.interactable = false;
+                    startClassButton.interactable = false;
                     editRoomButtom.interactable = false;
                     editRoomButtom.gameObject.SetActive(true);
                 }
@@ -73,8 +75,7 @@ namespace Zain360
                 {
                     statusIndicator.sprite = availableStatusSprite;
 
-                    joinRoomButtonText.text = "Start Class";
-                    joinRoomButton.interactable = true;
+                    startClassButton.interactable = true;
                     editRoomButtom.interactable = true;
                     editRoomButtom.gameObject.SetActive(true);
                 }
@@ -88,7 +89,11 @@ namespace Zain360
 
         public void JoinRoomClicked()
         {
-            UIManager.Instance.SendMessageToCurrentPage("JoinRoomClicked", roomID);
+            Dictionary<string, object> roomDetails = new Dictionary<string, object>();
+            roomDetails["roomid"] = roomID;
+            roomDetails["roomtitle"] = roomTitle.text;
+
+            UIManager.Instance.SendMessageToCurrentPage("JoinRoomClicked", roomDetails);
         }
     }
 }

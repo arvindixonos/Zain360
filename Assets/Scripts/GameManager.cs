@@ -42,6 +42,11 @@ namespace Zain360
         public GameObject person2;
 
 
+        public string currentUserFirstName;
+        public string currentUserLastName;
+
+        public string currentRoomTitle;
+
         private void Start()
         {
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -99,6 +104,16 @@ namespace Zain360
 
         public void OnDestroy()
         {
+            if (!student)
+            {
+                if(currentSelectedRoomID != -1)
+                {
+                    Dictionary<string, object> roomDetails = new Dictionary<string, object>();
+                    roomDetails["roomid"] = currentSelectedRoomID;
+                    MultiplayerManager.Instance.CallServer("exitroom", null, roomDetails);
+                }
+            }
+
             Instance = null;
         }        
 
@@ -121,7 +136,7 @@ namespace Zain360
             //chatinfos["message"] = "This is my chat message";
             //MultiplayerManager.Instance.CallServer("chatmessage", null, chatinfos);
 
-            MultiplayerManager.Instance.CallServer("getotherusernames", OtherUsersResult, null);
+            //MultiplayerManager.Instance.CallServer("getotherusernames", OtherUsersResult, null);
         }
 
         public void OtherUsersResult(Socket socket, Packet packet, params object[] args)
@@ -153,6 +168,9 @@ namespace Zain360
 
                 if (retcode == 0)
                 {
+                    currentUserFirstName = retObjects["firstname"].ToString();
+                    currentUserLastName = retObjects["lastname"].ToString();
+
                     UIManager.Instance.ChangePage(ePages.HOME_PAGE);
                 }
                 else

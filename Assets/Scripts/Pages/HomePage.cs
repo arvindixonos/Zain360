@@ -14,8 +14,6 @@ namespace Zain360
 
         public Room[] rooms;
 
-        
-
         public override void ShowPage()
         {
             base.ShowPage();
@@ -56,10 +54,8 @@ namespace Zain360
             base.HidePage();
         }
 
-        public void JoinRoomClicked(int roomid)
+        public void JoinRoomClicked(Dictionary<string, object> roomDetails)
         {
-            Dictionary<string, object> roomDetails = new Dictionary<string, object>();
-            roomDetails["roomid"] = roomid;
             MultiplayerManager.Instance.CallServer("joinroom", null, roomDetails);
 
             if (!GameManager.Instance.isStudent)
@@ -69,7 +65,7 @@ namespace Zain360
 
             UIManager.Instance.ChangePage(ePages.VIDEO_PAGE);
 
-            UIManager.Instance.SendMessageToCurrentPage("StartStreaming", roomid);
+            UIManager.Instance.SendMessageToCurrentPage("StartStreaming", roomDetails);
         }
 
         public void LogoutClicked()

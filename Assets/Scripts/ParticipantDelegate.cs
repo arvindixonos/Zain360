@@ -56,6 +56,8 @@ namespace Zain360
                 _data.Add(new DataParticipant() { someText = participantName });
             }
 
+            scroller.ClearAll();
+
             // tell the scroller to reload now that we have the data
             scroller.ReloadData();
         }
@@ -84,7 +86,7 @@ namespace Zain360
         public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
         {
             // in this example, even numbered cells are 30 pixels tall, odd numbered cells are 100 pixels tall
-            return (dataIndex % 2 == 0 ? 30f : 100f);
+            return 30f;
         }
 
         /// <summary>

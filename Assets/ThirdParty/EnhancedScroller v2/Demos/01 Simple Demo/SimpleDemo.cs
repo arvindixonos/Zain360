@@ -59,7 +59,7 @@ namespace EnhancedScrollerDemos.SuperSimpleDemo
             // set up some simple data
             _data = new SmallList<DataParticipant>();
             for (var i = 0; i < 1000; i++)
-                _data.Add(new DataParticipant() { someText = "Cell Data Index " + i.ToString() });
+                _data.Add(new DataParticipant() { someText = "Arvind" });
 
             // tell the scroller to reload now that we have the data
             scroller.ReloadData();
@@ -125,7 +125,7 @@ namespace EnhancedScrollerDemos.SuperSimpleDemo
         public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
         {
             // in this example, even numbered cells are 30 pixels tall, odd numbered cells are 100 pixels tall
-            return (dataIndex % 2 == 0 ? 30f : 100f);
+            return 50f;
         }
 
         /// <summary>

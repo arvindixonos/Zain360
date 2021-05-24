@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 
 namespace Zain360
@@ -29,11 +30,18 @@ namespace Zain360
         public ChatDelegate chatDelegate;
         public ParticipantDelegate participantDelegate;
 
-        public GameObject participantWindow;
-        public Toggle participantToggle;
+        public GameObject participantScrollerWindow;
 
-        public GameObject chatWindow;
+        public GameObject chatScrollerWindow;
+
+        public Text usernameText;
+        public Text classTitleText;
+
+        public RectTransform chatParticipantWindow;
+        private bool chatParticipantWindowShown = false;
+
         public Toggle chatToggle;
+        public Toggle participantToggle;
 
         void Awake()
         {
@@ -47,9 +55,8 @@ namespace Zain360
         {
             base.Start();
 
-            chatWindow.gameObject.SetActive(false);
-
-            participantWindow.gameObject.SetActive(false);
+            chatScrollerWindow.gameObject.SetActive(false);
+            participantScrollerWindow.gameObject.SetActive(false);
         }
 
         
@@ -58,9 +65,12 @@ namespace Zain360
             base.ShowPage();
         }
 
-        public void StartStreaming(int roomid)
+        public void StartStreaming(Dictionary<string, object> roomDetails)
         {
-            currentRoomID = roomid;
+            currentRoomID = (int)(roomDetails["roomid"]);
+
+            usernameText.text = GameManager.Instance.currentUserFirstName + " " + GameManager.Instance.currentUserLastName;
+            classTitleText.text = roomDetails["roomtitle"].ToString();
 
             fullScreenIndicator.gameObject.SetActive(false);
             lookIndicator.SetActive(true);
@@ -198,36 +208,66 @@ namespace Zain360
             participantDelegate.ParticipantsListReceived(participantsListReceived);
         }
 
-        public void ChatToggled()
+        public void ChatClicked()
         {
-            if(chatToggle.isOn)
+            chatParticipantWindowShown = !chatParticipantWindowShown;
+
+            if(chatParticipantWindowShown)
             {
-                chatWindow.gameObject.SetActive(true);
+                ShowChatParticipantWindow();
             }
             else
             {
-                chatWindow.gameObject.SetActive(false);
+                HideChatParticipantWindow();
             }
+
+            chatToggle.isOn = true;
+            participantToggle.isOn = false;
+        }
+
+        public void ParticipantClicked()
+        {
+            chatParticipantWindowShown = !chatParticipantWindowShown;
+
+            if (chatParticipantWindowShown)
+            {
+                ShowChatParticipantWindow();
+            }
+            else
+            {
+                HideChatParticipantWindow();
+            }
+
+            chatToggle.isOn = false;
+            participantToggle.isOn = true;
+        }
+
+        public void ShowChatParticipantWindow()
+        {
+            chatParticipantWindow.DOKill();
+            chatParticipantWindow.DOAnchorPosX(0f, 1f);
+
+            chatParticipantWindowShown = true;
+        }
+
+        public void HideChatParticipantWindow()
+        {
+            chatParticipantWindow.DOKill();
+            chatParticipantWindow.DOAnchorPosX(500f, 1f);
+
+            chatParticipantWindowShown = false;
+        }
+
+        public void ChatToggled()
+        {
+            chatScrollerWindow.gameObject.SetActive(true);
+            participantScrollerWindow.gameObject.SetActive(false);
         }
 
         public void ParticipantToggled()
         {
-            if (participantToggle.isOn)
-            {
-                participantWindow.gameObject.SetActive(true);
-            }
-            else
-            {
-                participantWindow.gameObject.SetActive(false);
-            }
+            chatScrollerWindow.gameObject.SetActive(false);
+            participantScrollerWindow.gameObject.SetActive(true);
         }
-
-        //void Update()
-        //{
-        //    if(Input.GetKeyUp(KeyCode.Space))
-        //    {
-        //        AddNewRow(Data.CellType.OtherText, "This is the new text which i want to be really really big to just test the next line");
-        //    }
-        //}
     }
 }
