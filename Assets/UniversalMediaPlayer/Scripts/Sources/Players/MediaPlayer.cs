@@ -43,7 +43,7 @@ namespace UMP
 
                     _playerObject = new MediaPlayerStandalone(monoObject, videoOutputObjects, standaloneOptions);
                     break;
-                /*
+
                 case UMPSettings.Platforms.iOS:
                     PlayerOptionsIPhone iphoneOptions = null;
                     if (options is PlayerOptionsIPhone)
@@ -63,10 +63,10 @@ namespace UMP
 
                     _playerObject = new MediaPlayerAndroid(monoObject, videoOutputObjects, androidOptions);
                     break;
-                    */
+                    /*
                 case UMPSettings.Platforms.WebGL:
                     _playerObject = new MediaPlayerWebGL(monoObject, videoOutputObjects, options);
-                    break;
+                    break;*/
             }
 
             if (_playerObject is IPlayer)

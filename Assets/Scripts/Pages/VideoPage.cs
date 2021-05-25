@@ -26,7 +26,6 @@ namespace Zain360
 
         private int currentRoomID = -1;
 
-
         public ChatDelegate chatDelegate;
         public ParticipantDelegate participantDelegate;
 
@@ -78,7 +77,7 @@ namespace Zain360
 
             UIManager.Instance.ShowLoadingPage();
 
-            GameManager.Instance.StreamRoom("Test");
+            GameManager.Instance.StreamRoom("Test", currentRoomID);
         }
 
         public override void HidePage()

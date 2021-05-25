@@ -64,7 +64,6 @@ namespace Zain360
             }
 
             UIManager.Instance.ChangePage(ePages.VIDEO_PAGE);
-
             UIManager.Instance.SendMessageToCurrentPage("StartStreaming", roomDetails);
         }
 

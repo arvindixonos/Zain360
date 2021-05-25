@@ -3,7 +3,7 @@ guid: d3ce7f63fc9a6b647af560c3d59ee3d3
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 200
+  fontSize: 100
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
@@ -11,7 +11,8 @@ TrueTypeFontImporter:
   fontName: Helvetica Neue
   fontNames:
   - Helvetica Neue
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: aee6e2ae1a1b71146b11f85e74104545, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

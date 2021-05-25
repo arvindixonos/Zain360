@@ -26,6 +26,8 @@ namespace Zain360
 
         public Page loadingPage;
 
+        public bool isLoading = false;
+
         private void Awake()
         {
             if(Instance == null)
@@ -38,11 +40,15 @@ namespace Zain360
 
         public void ShowLoadingPage()
         {
+            isLoading = true;
+
             loadingPage.ShowPage();
         }
 
         public void HideLoadingPage()
         {
+            isLoading = false;
+
             loadingPage.HidePage();
         }
 
@@ -52,6 +58,11 @@ namespace Zain360
             {
                 print("Same Page Present, not changing page!: " + currentPage);
                 return;
+            }
+
+            if(isLoading)
+            {
+                HideLoadingPage();
             }
 
             print("Setting new Page: " + newPage);
