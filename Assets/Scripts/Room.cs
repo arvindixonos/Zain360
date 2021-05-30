@@ -61,7 +61,7 @@ namespace Zain360
 
                 startClassButton.gameObject.SetActive(true);
                 editRoomButtom.gameObject.SetActive(true);
-                joinClassButton.gameObject.SetActive(false);
+                //joinClassButton.gameObject.SetActive(false);
 
                 if (status == "Streaming")
                 {
@@ -69,7 +69,9 @@ namespace Zain360
 
                     startClassButton.interactable = false;
                     editRoomButtom.interactable = false;
-                    editRoomButtom.gameObject.SetActive(true);
+                    startClassButton.gameObject.SetActive(false);
+                    editRoomButtom.gameObject.SetActive(false);
+                    joinClassButton.gameObject.SetActive(true);
                 }
                 else if(status == "Available")
                 {

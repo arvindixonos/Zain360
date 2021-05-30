@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 namespace Zain360
 {
@@ -14,9 +14,16 @@ namespace Zain360
 
         public Room[] rooms;
 
+        public Text usernameText;
+
         public override void ShowPage()
         {
             base.ShowPage();
+
+            usernameText.text = GameManager.Instance.currentUserFirstName + " " + GameManager.Instance.currentUserLastName;
+
+            roomsHandle.SetActive(true);
+            editRoomsHandle.gameObject.SetActive(false);
 
             FetchRoomInfos();
         }

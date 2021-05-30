@@ -31,6 +31,11 @@ namespace Zain360
 
         }
 
+        public virtual void Tabbed(bool shift = false)
+        {
+
+        }
+
         public virtual void ShowPage()
         {
             canvasGroup.DOFade(1f, 0.5f);

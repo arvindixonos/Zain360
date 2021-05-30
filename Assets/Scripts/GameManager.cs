@@ -91,6 +91,7 @@ namespace Zain360
             //#if UNITY_ANDROID
             //            universalMediaPlayer.Path = "http://77.232.100.197/hls/class01.m3u8";
             //#endif
+
             currentSelectedRoomID = roomid;
 
             universalMediaPlayer.Play();
@@ -178,6 +179,8 @@ namespace Zain360
                 else
                 {
                     print(retstatus);
+
+                    UIManager.Instance.SendMessageToCurrentPage("ShowLoginErrorText", "Unable to login! Please check login Details.");
                 }
             }
         }
@@ -213,6 +216,8 @@ namespace Zain360
                 else
                 {
                     print(retstatus);
+
+                    UIManager.Instance.SendMessageToCurrentPage("ShowSignupErrorText", "Unable to signup! Please check the details.");
                 }
             }
         }

@@ -105,5 +105,13 @@ namespace Zain360
         {
             pages[(int)currentPage].SendMessage(functionName, parameter);
         }
+
+        public void Update()
+        {
+            if(Input.GetKeyUp(KeyCode.Tab))
+            {
+                pages[(int)currentPage].Tabbed(Input.GetKey(KeyCode.LeftShift) | Input.GetKey(KeyCode.RightShift));
+            }
+        }
     }
 }

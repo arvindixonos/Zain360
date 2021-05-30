@@ -16,13 +16,23 @@ namespace Zain360
         public InputField lo_passwordField;
 
 
-        public GameObject signupPanel;
-        public GameObject loginPanel;
+        public TabPanel signupPanel;
+        public TabPanel loginPanel;
         public GameObject forgotPasswordPanel;
         public GameObject resetPasswordPanel;
 
         public Toggle loginToggle;
         public Toggle signupToggle;
+
+        public Text loginErrorText;
+        public Text signupErrorText;
+
+        public override void Awake()
+        {
+            base.Awake();
+
+            LoginSelected();
+        }
 
         public override void ShowPage()
         {
@@ -31,8 +41,11 @@ namespace Zain360
 
         public void SignupSelected()
         {
-            signupPanel.SetActive(true);
-            loginPanel.SetActive(false);
+            signupPanel.gameObject.SetActive(true);
+            signupPanel.PanelSelected();
+
+            loginPanel.gameObject.SetActive(false);
+            loginPanel.PanelDeselected();
 
             //AudioManager.Instance.PlaySound(eSoundList.SOUND_CLICK);
 
@@ -45,8 +58,11 @@ namespace Zain360
 
             //UIManager.Instance.ChangePage(ePages.LOGIN_PAGE);
 
-            signupPanel.SetActive(false);
-            loginPanel.SetActive(true);
+            signupPanel.gameObject.SetActive(false);
+            signupPanel.PanelDeselected();
+
+            loginPanel.gameObject.SetActive(true);
+            loginPanel.PanelSelected();
         }
 
         public void SelectLogin()
@@ -67,22 +83,78 @@ namespace Zain360
         {
             print("Signup Clicked");
 
-            string firstName = firstnameField.text;
-            string lastName = lastnameField.text;
-            string username = su_usernameField.text;
-            string password = su_passwordField.text;
+            HideSignupErrorText();
 
-            GameManager.Instance.Signup(firstName, lastName, username, password);
+            string firstName = firstnameField.text.Trim();
+            string lastName = lastnameField.text.Trim();
+            string username = su_usernameField.text.Trim();
+            string password = su_passwordField.text.Trim();
+
+            if (username.Length < 5 || !username.Contains("@") || !username.Contains("."))
+            {
+                ShowSignupErrorText("Incorrect Username.");
+            }
+            else if (password.Length == 0)
+            {
+                ShowSignupErrorText("Password cannot be empty.");
+            }
+            else if (firstName.Length == 0)
+            {
+                ShowSignupErrorText("First Name cannot be empty.");
+            }
+            else if (firstName.Length == 0)
+            {
+                ShowSignupErrorText("Last Name cannot be empty.");
+            }
+            else
+            {
+                GameManager.Instance.Signup(firstName, lastName, username, password);
+            }
+        }
+
+        private void ShowLoginErrorText(string text)
+        {
+            loginErrorText.text = text;
+            loginErrorText.gameObject.SetActive(true);
+        }
+
+        private void HideLoginErrorText()
+        {
+            loginErrorText.gameObject.SetActive(false);
+        }
+
+        private void ShowSignupErrorText(string text)
+        {
+            signupErrorText.text = text;
+            signupErrorText.gameObject.SetActive(true);
+        }
+
+        private void HideSignupErrorText()
+        {
+            signupErrorText.gameObject.SetActive(false);
         }
 
         public void LoginClicked()
         {
             print("Login Clicked");
 
-            string username = lo_usernameField.text;
-            string password = lo_passwordField.text;
+            HideLoginErrorText();
+
+            string username = lo_usernameField.text.Trim();
+            string password = lo_passwordField.text.Trim();
             
-            GameManager.Instance.Login(username, password);
+            if(username.Length < 5 || !username.Contains("@") || !username.Contains("."))
+            {
+                ShowLoginErrorText("Incorrect Username. Please try again");
+            }
+            else if(password.Length == 0)
+            {
+                ShowLoginErrorText("Password cannot be empty");
+            }
+            else
+            {
+                GameManager.Instance.Login(username, password);
+            }
         }
 
         public void ForgotPasswordClicked()
@@ -90,6 +162,12 @@ namespace Zain360
             print("Forgot Password Clicked");
 
             UIManager.Instance.ChangePage(ePages.FORGOT_RESET_PASSWORD_PAGE); 
+        }
+
+        public override void Tabbed(bool shift = false)
+        {
+            signupPanel.Tabbed(shift);
+            loginPanel.Tabbed(shift);
         }
 
         public void OkClicked()
