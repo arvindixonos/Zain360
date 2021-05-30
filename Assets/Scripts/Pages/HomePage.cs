@@ -46,13 +46,13 @@ namespace Zain360
             int i = 0;
             foreach (KeyValuePair<string, object> entry in retObjects)
             {
+                
                 Dictionary<string, object> objects = entry.Value as Dictionary<string, object>;
                 int roomID = Convert.ToInt32(objects["roomid"]);
                 string roomTitle = objects["title"] as string;
                 string roomDescription = objects["description"] as string;
                 string roomStatus = objects["status"] as string;
                 rooms[i].SetRoom(roomID, roomTitle, roomDescription, roomStatus);
-
                 i++;
             }
         }
@@ -111,9 +111,10 @@ namespace Zain360
         {
             roomsHandle.SetActive(true);
             editRoomsHandle.gameObject.SetActive(false);
-
             Dictionary<string, object> retObjects = args[0] as Dictionary<string, object>;
             FillRooms(retObjects);
+            rooms[GameManager.Instance.currentSelectedRoomID - 1].startClassButton.interactable = true;
+
         }
     }
 }
