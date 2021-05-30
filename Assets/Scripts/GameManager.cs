@@ -44,6 +44,7 @@ namespace Zain360
 
         public string currentUserFirstName;
         public string currentUserLastName;
+        public string currentUser;
 
         public string currentRoomTitle;
 
@@ -132,6 +133,7 @@ namespace Zain360
             userinfos["password"] = password;
             userinfos["student"] = student ? 1 : 0;
 
+            GameManager.Instance.currentUser = username;
             MultiplayerManager.Instance.CallServer("login", LoginResult, userinfos);
 
 

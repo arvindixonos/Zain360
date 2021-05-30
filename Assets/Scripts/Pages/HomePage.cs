@@ -66,6 +66,16 @@ namespace Zain360
         {
             MultiplayerManager.Instance.CallServer("joinroom", null, roomDetails);
 
+   
+
+            UIManager.Instance.ChangePage(ePages.VIDEO_PAGE);
+            UIManager.Instance.SendMessageToCurrentPage("StartStreaming", roomDetails);
+        }
+
+        public void StartClassClicked(Dictionary<string, object> roomDetails)
+        {
+            MultiplayerManager.Instance.CallServer("joinroom", null, roomDetails);
+
             if (!GameManager.Instance.isStudent)
             {
                 MultiplayerManager.Instance.CallServer("setroomstreaming", null, roomDetails);
@@ -74,6 +84,7 @@ namespace Zain360
             UIManager.Instance.ChangePage(ePages.VIDEO_PAGE);
             UIManager.Instance.SendMessageToCurrentPage("StartStreaming", roomDetails);
         }
+
 
         public void LogoutClicked()
         {

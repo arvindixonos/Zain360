@@ -9940,7 +9940,7 @@ PrefabInstance:
     - target: {fileID: 7997477835783250199, guid: 27915dbdb3fe99e4db4950075b1677a4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: JoinRoomClicked
+      value: StartClassClicked
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7766551619192366355, guid: 27915dbdb3fe99e4db4950075b1677a4, type: 3}
@@ -19578,6 +19578,7 @@ MonoBehaviour:
   person2: {fileID: 1725616764}
   currentUserFirstName: 
   currentUserLastName: 
+  currentUser: 
   currentRoomTitle: 
 --- !u!114 &2021075112
 MonoBehaviour:

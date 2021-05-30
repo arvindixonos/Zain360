@@ -94,8 +94,18 @@ namespace Zain360
             Dictionary<string, object> roomDetails = new Dictionary<string, object>();
             roomDetails["roomid"] = roomID;
             roomDetails["roomtitle"] = roomTitle.text;
-
+           
             UIManager.Instance.SendMessageToCurrentPage("JoinRoomClicked", roomDetails);
+        }
+
+        public void StartClassClicked()
+        {
+            Dictionary<string, object> roomDetails = new Dictionary<string, object>();
+            roomDetails["roomid"] = roomID;
+            roomDetails["roomtitle"] = roomTitle.text;
+            roomDetails["roomowner"] = GameManager.Instance.currentUser;
+
+            UIManager.Instance.SendMessageToCurrentPage("StartClassClicked", roomDetails);
         }
     }
 }
