@@ -9,5 +9,8 @@ namespace Zain360
     {
         public InputField roomTitle;
         public InputField roomDescription;
+
+        public Dropdown starttime;
+        public Dropdown endtime;
     }
 }

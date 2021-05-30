@@ -42,6 +42,7 @@ namespace Zain360
 
         public void FillRooms(Dictionary<string, object> retObjects)
         {
+            
             int i = 0;
             foreach (KeyValuePair<string, object> entry in retObjects)
             {
@@ -95,6 +96,8 @@ namespace Zain360
             roomDetails["roomid"] = GameManager.Instance.currentSelectedRoomID;
             roomDetails["title"] = editRoomsHandle.roomTitle.text;
             roomDetails["description"] = editRoomsHandle.roomDescription.text;
+            roomDetails["starttime"] = editRoomsHandle.starttime.options[editRoomsHandle.starttime.value].text;
+            roomDetails["endtime"] = editRoomsHandle.endtime.options[editRoomsHandle.endtime.value].text;
 
             return roomDetails;
         }
