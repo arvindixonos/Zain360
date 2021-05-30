@@ -77,7 +77,7 @@ namespace Zain360
                 {
                     statusIndicator.sprite = availableStatusSprite;
 
-                    startClassButton.interactable = true;
+                    startClassButton.interactable = false;
                     editRoomButtom.interactable = true;
                     editRoomButtom.gameObject.SetActive(true);
                 }
