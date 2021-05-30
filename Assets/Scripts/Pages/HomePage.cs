@@ -20,7 +20,7 @@ namespace Zain360
         {
             base.ShowPage();
 
-            usernameText.text = GameManager.Instance.currentUserFirstName + " " + GameManager.Instance.currentUserLastName;
+            usernameText.text = GameManager.Instance.currentUserFirstName;
 
             roomsHandle.SetActive(true);
             editRoomsHandle.gameObject.SetActive(false);
@@ -52,7 +52,10 @@ namespace Zain360
                 string roomTitle = objects["title"] as string;
                 string roomDescription = objects["description"] as string;
                 string roomStatus = objects["status"] as string;
-                rooms[i].SetRoom(roomID, roomTitle, roomDescription, roomStatus);
+                string roomOwner = objects["roomowner"] as string;
+                string startTime = objects["starttime"] as string;
+                string endTime = objects["endtime"] as string;
+                rooms[i].SetRoom(roomID, roomTitle, roomDescription, roomStatus, roomOwner, startTime, endTime);
                 i++;
             }
         }

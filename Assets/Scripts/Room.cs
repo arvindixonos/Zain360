@@ -13,6 +13,8 @@ namespace Zain360
         public Text roomTitle;
         public Text roomDescription;
         public Text roomStatus;
+        public Text roomOwner;
+        public Text classTime;
 
         public Button joinClassButton;
         public Button startClassButton;
@@ -32,12 +34,22 @@ namespace Zain360
         {
         }
 
-        public void SetRoom(int roomID, string title, string description, string status)
+        public void SetRoom(int roomID, string title, string description, string status, string owner, string start, string end)
         {
             this.roomID = roomID;
             roomTitle.text = title;
             roomDescription.text = description;
             roomStatus.text = status;
+            roomOwner.text = owner;
+            if(start == "N/A" && end == "N/A")
+            {
+                classTime.text = "N/A";
+            }
+            else
+            {
+                string duration = start + " - " + end;
+                classTime.text = duration;
+            }
 
             if (GameManager.Instance.isStudent)
             {
