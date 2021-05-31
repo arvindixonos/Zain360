@@ -112,6 +112,7 @@ namespace Zain360
             roomDetails["description"] = editRoomsHandle.roomDescription.text;
             roomDetails["starttime"] = editRoomsHandle.starttime.options[editRoomsHandle.starttime.value].text;
             roomDetails["endtime"] = editRoomsHandle.endtime.options[editRoomsHandle.endtime.value].text;
+            roomDetails["bookdate"] = System.DateTime.Now.Date.ToString("yyyy-MM-dd");
 
             return roomDetails;
         }
