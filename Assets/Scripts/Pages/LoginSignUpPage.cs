@@ -37,10 +37,23 @@ namespace Zain360
         public override void ShowPage()
         {
             base.ShowPage();
+
+            ClearLoginFields();
+            ClearSignupFields();
+        }
+
+        public void ClearSignupFields()
+        {
+            su_usernameField.text = "";
+            su_passwordField.text = "";
+            firstnameField.text = "";
+            lastnameField.text = "";
         }
 
         public void SignupSelected()
         {
+            ClearSignupFields();
+
             signupPanel.gameObject.SetActive(true);
             signupPanel.PanelSelected();
 
@@ -52,11 +65,19 @@ namespace Zain360
             //UIManager.Instance.ChangePage(ePages.SIGNUP_PAGE);
         }
 
+        public void ClearLoginFields()
+        {
+            lo_usernameField.text = "";
+            lo_passwordField.text = "";
+        }
+
         public void LoginSelected()
         {
             //AudioManager.Instance.PlaySound(eSoundList.SOUND_CLICK);
 
             //UIManager.Instance.ChangePage(ePages.LOGIN_PAGE);
+
+            ClearLoginFields();
 
             signupPanel.gameObject.SetActive(false);
             signupPanel.PanelDeselected();

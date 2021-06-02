@@ -16,6 +16,11 @@ namespace Zain360
 
         public Text usernameText;
 
+        private bool editingRoom = false;
+
+        public EditRoom editRoom;
+        public TabPanel editRoomTabPanel;
+
         public override void ShowPage()
         {
             base.ShowPage();
@@ -42,11 +47,9 @@ namespace Zain360
 
         public void FillRooms(Dictionary<string, object> retObjects)
         {
-            
             int i = 0;
             foreach (KeyValuePair<string, object> entry in retObjects)
             {
-                
                 Dictionary<string, object> objects = entry.Value as Dictionary<string, object>;
                 int roomID = Convert.ToInt32(objects["roomid"]);
                 string roomTitle = objects["title"] as string;
@@ -68,8 +71,6 @@ namespace Zain360
         public void JoinRoomClicked(Dictionary<string, object> roomDetails)
         {
             MultiplayerManager.Instance.CallServer("joinroom", null, roomDetails);
-
-   
 
             UIManager.Instance.ChangePage(ePages.VIDEO_PAGE);
             UIManager.Instance.SendMessageToCurrentPage("StartStreaming", roomDetails);
@@ -98,10 +99,21 @@ namespace Zain360
 
         public void EditRoomClicked(int roomid)
         {
-            GameManager.Instance.currentSelectedRoomID = roomid;
+            editingRoom = true;
 
+            editRoom.ClearAllFields();
+
+            GameManager.Instance.currentSelectedRoomID = roomid;
             roomsHandle.SetActive(false);
             editRoomsHandle.gameObject.SetActive(true);
+        }
+
+        public void EditRoomCancelClicked()
+        {
+            editingRoom = false;
+
+            roomsHandle.SetActive(true);
+            editRoomsHandle.gameObject.SetActive(false);
         }
 
         private Dictionary<string, object> GetCurrentSelectedRoomDetails()
@@ -110,9 +122,9 @@ namespace Zain360
             roomDetails["roomid"] = GameManager.Instance.currentSelectedRoomID;
             roomDetails["title"] = editRoomsHandle.roomTitle.text;
             roomDetails["description"] = editRoomsHandle.roomDescription.text;
-            roomDetails["starttime"] = editRoomsHandle.starttime.options[editRoomsHandle.starttime.value].text;
-            roomDetails["endtime"] = editRoomsHandle.endtime.options[editRoomsHandle.endtime.value].text;
-            roomDetails["bookdate"] = System.DateTime.Now.Date.ToString("yyyy-MM-dd");
+            string nowtime = System.DateTime.Now.Date.ToString("MM/dd/yyyy");
+            roomDetails["starttime"] = nowtime + " " + editRoomsHandle.starttime.options[editRoomsHandle.starttime.value].text;
+            roomDetails["endtime"] = nowtime + " " + editRoomsHandle.endtime.options[editRoomsHandle.endtime.value].text;
 
             return roomDetails;
         }
@@ -124,12 +136,21 @@ namespace Zain360
 
         public void SavedRoomInfoResult(Socket socket, Packet packet, params object[] args)
         {
+            editingRoom = false;
+
             roomsHandle.SetActive(true);
             editRoomsHandle.gameObject.SetActive(false);
             Dictionary<string, object> retObjects = args[0] as Dictionary<string, object>;
             FillRooms(retObjects);
             rooms[GameManager.Instance.currentSelectedRoomID - 1].startClassButton.interactable = true;
+        }
 
+        public override void Tabbed(bool shift = false)
+        {
+            if(editingRoom)
+            {
+                editRoomTabPanel.Tabbed(shift);
+            }
         }
     }
 }

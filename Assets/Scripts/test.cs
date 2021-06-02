@@ -5,14 +5,12 @@ using UnityEngine.UI;
 
 public class test : MonoBehaviour
 {
-    public RectTransform fullscreentransform;
-
     void Start()
     {
-        fullscreentransform.anchorMin = Vector2.zero;
-        fullscreentransform.anchorMax = Vector2.one;
-        fullscreentransform.sizeDelta = Vector2.zero;
-        fullscreentransform.anchoredPosition = Vector2.zero;
+        string currentTime = System.DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+        string todayTime = System.DateTime.Today.ToString("MM/dd/yyyy HH:mm");
+
+        System.DateTime dt = System.DateTime.Parse(currentTime);
     }
 
     void Update()

@@ -48,6 +48,8 @@ namespace Zain360
 
         public string currentRoomTitle;
 
+        public RawImage videoImage;
+
         private void Start()
         {
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -81,6 +83,26 @@ namespace Zain360
         public void StopStream()
         {
             universalMediaPlayer.Stop(true);
+        }
+    
+        public void MuteAudio()
+        {
+            universalMediaPlayer.Mute = true;
+        }
+
+        public void UnmuteAudio()
+        {
+            universalMediaPlayer.Mute = false;
+        }
+
+        public void MuteVideo()
+        {
+            videoImage.color = Color.black;
+        }
+
+        public void UnmuteVideo()
+        {
+            videoImage.color = Color.white;
         }
 
         public void StreamRoom(string classroomname, int roomid)

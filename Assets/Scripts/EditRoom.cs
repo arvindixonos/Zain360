@@ -12,5 +12,14 @@ namespace Zain360
 
         public Dropdown starttime;
         public Dropdown endtime;
+    
+        public void ClearAllFields()
+        {
+            roomTitle.text = "";
+            roomDescription.text = "";
+
+            starttime.value = 0;
+            endtime.value = 0;
+        }
     }
 }

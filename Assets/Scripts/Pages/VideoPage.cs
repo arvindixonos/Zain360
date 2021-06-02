@@ -42,6 +42,13 @@ namespace Zain360
         public Toggle chatToggle;
         public Toggle participantToggle;
 
+        public GameObject videoButton;
+        public GameObject audioButton;
+
+        private bool videoMuted = false;
+        private bool audioMuted = false;
+
+
         void Awake()
         {
             videoRenderImageAnchorMin = videoRenderImage.rectTransform.anchorMin;
@@ -62,6 +69,29 @@ namespace Zain360
         public override void ShowPage()
         {
             base.ShowPage();
+
+            videoButton.gameObject.SetActive(!GameManager.Instance.isStudent);
+            audioButton.gameObject.SetActive(!GameManager.Instance.isStudent);
+        }
+
+        public void ToggleVideoMute()
+        {
+            videoMuted = !videoMuted;
+
+            Dictionary<string, object> mutedInfos = new Dictionary<string, object>();
+            mutedInfos["roomid"] = currentRoomID;
+            mutedInfos["muted"] = videoMuted;
+            MultiplayerManager.Instance.CallServer("videostatuschanged", null, mutedInfos);
+        }
+
+        public void ToggleAudioMute()
+        {
+            audioMuted = !audioMuted;
+
+            Dictionary<string, object> mutedInfos = new Dictionary<string, object>();
+            mutedInfos["roomid"] = currentRoomID;
+            mutedInfos["muted"] = audioMuted;
+            MultiplayerManager.Instance.CallServer("audiostatuschanged", null, mutedInfos);
         }
 
         public void StartStreaming(Dictionary<string, object> roomDetails)
@@ -178,6 +208,11 @@ namespace Zain360
             print("SOME ERROR!");
         }
 
+        public void ExitClass(string message)
+        {
+            EndClassClicked();
+        }
+
         public void EndClassClicked()
         {
             GameManager.Instance.StopStream();
@@ -187,6 +222,7 @@ namespace Zain360
 
             Dictionary<string, object> roomDetails = new Dictionary<string, object>();
             roomDetails["roomid"] = currentRoomID;
+            roomDetails["username"] = GameManager.Instance.currentUser;
             MultiplayerManager.Instance.CallServer("exitroom", null, roomDetails);
 
             if (!GameManager.Instance.isStudent)

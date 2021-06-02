@@ -61,6 +61,41 @@ namespace Zain360
                 UIManager.Instance.SendMessageToCurrentPage("OpponentMessageReceived", message);
             });
 
+            socketManager.Socket.On("mutevideo", (s, p, a) =>
+            {
+                string message = a[0] as string;
+
+                GameManager.Instance.MuteVideo();
+            });
+
+            socketManager.Socket.On("unmutevideo", (s, p, a) =>
+            {
+                string message = a[0] as string;
+
+                GameManager.Instance.UnmuteVideo();
+            });
+
+            socketManager.Socket.On("muteaudio", (s, p, a) =>
+            {
+                string message = a[0] as string;
+
+                GameManager.Instance.MuteAudio();
+            });
+
+            socketManager.Socket.On("unmuteaudio", (s, p, a) =>
+            {
+                string message = a[0] as string;
+
+                GameManager.Instance.UnmuteAudio();
+            });
+
+            socketManager.Socket.On("exitroom", (s, p, a) =>
+            {
+                string message = a[0] as string;
+
+                UIManager.Instance.SendMessageToCurrentPage("ExitClass", message);
+            });
+
             socketManager.Socket.On("allroomusers", (s, p, a) =>
             {
                 Dictionary<string, object> roomusers = a[0] as Dictionary<string, object>;

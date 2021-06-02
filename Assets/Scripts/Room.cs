@@ -27,6 +27,7 @@ namespace Zain360
         public Image statusIndicator;
         public Sprite availableStatusSprite;
         public Sprite streamingStatusSprite;
+        public Sprite offlineStatusSprite;
 
 
 
@@ -47,7 +48,7 @@ namespace Zain360
             }
             else
             {
-                string duration = start + " - " + end;
+                string duration = start.Split(' ')[1] + " - " + end.Split(' ')[1];
                 classTime.text = duration;
             }
 
@@ -59,12 +60,25 @@ namespace Zain360
 
                 if (status == "Streaming")
                 {
+                    joinClassButton.interactable = true;
                     statusIndicator.sprite = streamingStatusSprite;
                     gameObject.SetActive(true);
                 }
+                else if (status == "Ready")
+                {
+                    roomStatus.text = "Ready";
+                    statusIndicator.sprite = availableStatusSprite;
+                    joinClassButton.interactable = false;
+                    startClassButton.interactable = false;
+                    editRoomButtom.interactable = true;
+                }
                 else
                 {
-                    gameObject.SetActive(false);
+                    roomStatus.text = "Offline";
+                    statusIndicator.sprite = offlineStatusSprite;
+                    joinClassButton.interactable = false;
+                    startClassButton.interactable = false;
+                    editRoomButtom.interactable = true;
                 }
             }
             else
