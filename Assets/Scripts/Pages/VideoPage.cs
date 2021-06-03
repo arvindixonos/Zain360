@@ -44,6 +44,7 @@ namespace Zain360
 
         public GameObject videoButton;
         public GameObject audioButton;
+        public GameObject recordButton;
 
         private bool videoMuted = false;
         private bool audioMuted = false;
@@ -72,6 +73,7 @@ namespace Zain360
 
             videoButton.gameObject.SetActive(!GameManager.Instance.isStudent);
             audioButton.gameObject.SetActive(!GameManager.Instance.isStudent);
+            recordButton.gameObject.SetActive(!GameManager.Instance.isStudent);
         }
 
         public void ToggleVideoMute()

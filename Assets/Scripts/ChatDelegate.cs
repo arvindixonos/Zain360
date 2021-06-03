@@ -176,7 +176,7 @@ namespace Zain360
         public void SendClicked(int currentRoomID)
         {
             // add a chat row from us
-            AddNewRow(DataChat.CellType.MyText, myInputField.text);
+            AddNewRow(DataChat.CellType.MyText, GameManager.Instance.currentUserFirstName + ":" + myInputField.text);
 
             Dictionary<string, object> messageInfos = new Dictionary<string, object>();
             messageInfos["roomid"] = currentRoomID;
