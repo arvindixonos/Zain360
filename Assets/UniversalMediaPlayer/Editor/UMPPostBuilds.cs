@@ -116,6 +116,15 @@ public class UMPPostBuilds : MonoBehaviour
             if (!settings.UseExternalLibraries)
             {
                 CopyPlugins(settings.AssetPath + "/Plugins/Win/x86_64/plugins/", dataPath + "/Plugins/plugins/");
+
+                string[] files = Directory.GetFiles(dataPath + "/Plugins/x86_64/");
+                foreach (string str in files)
+                {
+                    string file = Path.GetFileName(str);
+                    Debug.LogError(file);
+                    File.Copy(str, dataPath + "/Plugins/" + file);
+                }
+                Directory.Delete(dataPath + "/Plugins/x86_64/", true);
             }
             else
             {

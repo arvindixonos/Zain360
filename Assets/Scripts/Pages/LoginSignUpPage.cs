@@ -155,6 +155,11 @@ namespace Zain360
             signupErrorText.gameObject.SetActive(false);
         }
 
+        public void QuitClicked()
+        {
+            Application.Quit(0);
+        }
+
         public void LoginClicked()
         {
             print("Login Clicked");
