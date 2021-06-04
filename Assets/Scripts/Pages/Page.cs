@@ -31,6 +31,11 @@ namespace Zain360
 
         }
 
+        public virtual void Update()
+        {
+          
+        }
+
         public virtual void Tabbed(bool shift = false)
         {
 

@@ -262,5 +262,35 @@ namespace Zain360
             person1.SetActive(true);
             person2.SetActive(false);
         }
+
+        public void ResetPassword(string emailID)
+        {
+            Dictionary<string, object> userinfo = new Dictionary<string, object>();
+            userinfo["username"] = emailID;
+            MultiplayerManager.Instance.CallServer("resetpassword", ResetResult, userinfo);
+        }
+
+        public void ResetResult(Socket socket, Packet packet, object[] args)
+        {
+         
+            Dictionary<string, object> retObjects = args[0] as Dictionary<string, object>;
+
+            if (retObjects.Count > 0)
+            {
+                int retcode = int.Parse(retObjects["retcode"].ToString());
+                string retstatus = retObjects["retstatus"].ToString();
+
+                if(retcode == 0)
+                {
+                    print("Reset link sent");
+                    print(retObjects["mailstatus"]);
+                }
+                if(retcode == -1)
+                {
+                    print("No such user");
+                }
+            }
+        }
+
     }
 }
