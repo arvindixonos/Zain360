@@ -15,6 +15,7 @@ namespace Zain360
         public Text roomStatus;
         public Text roomOwner;
         public Text classTime;
+        public RawImage classthumbnail;
 
         public Button joinClassButton;
         public Button startClassButton;
@@ -35,14 +36,21 @@ namespace Zain360
         {
         }
 
-        public void SetRoom(int roomID, string title, string description, string status, string owner, string start, string end)
+        public void SetRoom(int roomID, string title, string description, string status, string owner, string start, string end, byte[] thumbnail)
         {
             this.roomID = roomID;
             roomTitle.text = title;
             roomDescription.text = description;
             roomStatus.text = status;
             roomOwner.text = owner;
-            if(start == "N/A" && end == "N/A")
+            if(thumbnail != null)
+            {
+                Texture2D thumb = new Texture2D(128, 128);
+                print(thumbnail);
+                thumb.LoadImage(thumbnail);
+                classthumbnail.texture = thumb;
+            }
+            if (start == "N/A" && end == "N/A")
             {
                 classTime.text = "N/A";
             }

@@ -285,6 +285,11 @@
 			img.fillCenter = true;
 		}
 
+		public static void ImageTest(Image img, Sprite sprite)
+		{
+			img.sprite = sprite;
+		}
+
 
 		public static void OutLine (Outline otl, Color color, float dis) {
 			otl.effectColor = color;

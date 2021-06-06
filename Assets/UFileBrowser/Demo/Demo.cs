@@ -1,19 +1,62 @@
-﻿namespace uFileBrowser {
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
 
-public class Demo : UnityEngine.MonoBehaviour {
+namespace uFileBrowser
+{
 
-	public UnityEngine.UI.InputField IF;
+    public class Demo : UnityEngine.MonoBehaviour
+    {
+
+        public UnityEngine.UI.InputField IF;
+        Texture2D texNotFound;
+        private string filelocationinput = "";
+        //public RawImage testImage;
+        public byte[] tempBlob;
+        public static Demo Instance;
 
 
-	public void OpenFile (string path) {
-		IF.text = FileUtil.ReadText(path);
-	}
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+        }
+
+        public void OpenFile(string path)
+        {
+            filelocationinput = path;
+            StartCoroutine(LoadTexture());
+            print(tempBlob);
+        }
 
 
-	public void SaveFile (string path) {
-		FileUtil.WriteText(IF.text, path);
-	}
+        IEnumerator LoadTexture()
+        {
+            WWW www = new WWW("file://" + filelocationinput); ;
 
+            yield return www;
+
+            Texture2D avatarImage = null;
+
+            if (www.error == null && www.texture != null)
+            {
+                avatarImage = www.texture;
+                //testImage.GetComponent<RawImage>().texture = avatarImage;
+                print(avatarImage.GetType());
+                tempBlob = avatarImage.EncodeToJPG();
+                print(tempBlob);
+                Debug.Log("Successfully saved!");
+            }
+            else
+            {
+                avatarImage = texNotFound;
+                Debug.Log("Texture not found");
+                tempBlob = null;
+            }
+        }
+    }
 
 }
-}
+

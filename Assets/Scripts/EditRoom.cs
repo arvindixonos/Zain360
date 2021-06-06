@@ -14,6 +14,8 @@ namespace Zain360
         public Dropdown endtime;
 
         public Text editRoomErrorText;
+        public RawImage thumbnail;
+        public Texture editclassroom;
 
         public void ClearAllFields()
         {
@@ -23,6 +25,8 @@ namespace Zain360
 
             starttime.value = 0;
             endtime.value = 0;
+            thumbnail.texture = editclassroom;
+
         }
 
         public void SaveDetailsClicked()

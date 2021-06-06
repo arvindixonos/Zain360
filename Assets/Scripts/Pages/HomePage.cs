@@ -2,6 +2,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -58,8 +61,22 @@ namespace Zain360
                 string roomOwner = objects["roomowner"] as string;
                 string startTime = objects["starttime"] as string;
                 string endTime = objects["endtime"] as string;
-                rooms[i].SetRoom(roomID, roomTitle, roomDescription, roomStatus, roomOwner, startTime, endTime);
+                //byte[] thumbnail = (byte[]) objects["thumbnail"];
+                byte[] thumbnail = null;
+                rooms[i].SetRoom(roomID, roomTitle, roomDescription, roomStatus, roomOwner, startTime, endTime, thumbnail);
                 i++;
+            }
+        }
+
+        byte[] ObjectToByteArray(object obj)
+        {
+            if (obj == null)
+                return null;
+            BinaryFormatter bf = new BinaryFormatter();
+            using (MemoryStream ms = new MemoryStream())
+            {
+                bf.Serialize(ms, obj);
+                return ms.ToArray();
             }
         }
 
@@ -125,7 +142,8 @@ namespace Zain360
             string nowtime = System.DateTime.Now.Date.ToString("MM/dd/yyyy");
             roomDetails["starttime"] = nowtime + " " + editRoomsHandle.starttime.options[editRoomsHandle.starttime.value].text;
             roomDetails["endtime"] = nowtime + " " + editRoomsHandle.endtime.options[editRoomsHandle.endtime.value].text;
-
+            roomDetails["thumbnail"] = uFileBrowser.Demo.Instance.tempBlob;
+            print(uFileBrowser.Demo.Instance.tempBlob.Length);
             return roomDetails;
         }
 
@@ -147,7 +165,7 @@ namespace Zain360
 
         public override void Tabbed(bool shift = false)
         {
-            if(editingRoom)
+            if (editingRoom)
             {
                 editRoomTabPanel.Tabbed(shift);
             }
