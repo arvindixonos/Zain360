@@ -9915,6 +9915,11 @@ PrefabInstance:
       objectReference: {fileID: 1413647645}
     - target: {fileID: 2155839487909152454, guid: 27915dbdb3fe99e4db4950075b1677a4,
         type: 3}
+      propertyPath: defaultThumbnail
+      value: 
+      objectReference: {fileID: 2800000, guid: 6fced6bfa38b3b647b42689bb3b18494, type: 3}
+    - target: {fileID: 2155839487909152454, guid: 27915dbdb3fe99e4db4950075b1677a4,
+        type: 3}
       propertyPath: startClassButton
       value: 
       objectReference: {fileID: 689705016}
@@ -14525,6 +14530,11 @@ PrefabInstance:
       propertyPath: joinClassButton
       value: 
       objectReference: {fileID: 1955985602}
+    - target: {fileID: 2155839487909152454, guid: 27915dbdb3fe99e4db4950075b1677a4,
+        type: 3}
+      propertyPath: defaultThumbnail
+      value: 
+      objectReference: {fileID: 2800000, guid: 6fced6bfa38b3b647b42689bb3b18494, type: 3}
     - target: {fileID: 2155839487909152454, guid: 27915dbdb3fe99e4db4950075b1677a4,
         type: 3}
       propertyPath: startClassButton
@@ -22864,6 +22874,11 @@ PrefabInstance:
       propertyPath: joinClassButton
       value: 
       objectReference: {fileID: 1983346331}
+    - target: {fileID: 2155839487909152454, guid: 27915dbdb3fe99e4db4950075b1677a4,
+        type: 3}
+      propertyPath: defaultThumbnail
+      value: 
+      objectReference: {fileID: 2800000, guid: 6fced6bfa38b3b647b42689bb3b18494, type: 3}
     - target: {fileID: 2155839487909152454, guid: 27915dbdb3fe99e4db4950075b1677a4,
         type: 3}
       propertyPath: startClassButton

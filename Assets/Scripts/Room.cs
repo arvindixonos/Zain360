@@ -17,6 +17,7 @@ namespace Zain360
         public Text roomOwner;
         public Text classTime;
         public RawImage classthumbnail;
+        public Texture2D defaultThumbnail;
 
         public Button joinClassButton;
         public Button startClassButton;
@@ -44,13 +45,17 @@ namespace Zain360
             roomDescription.text = description;
             roomStatus.text = status;
             roomOwner.text = owner;
-            if(thumbnail != null)
+            if(thumbnail != "")
             {
                 Texture2D thumb = new Texture2D(128, 128);
                 print(thumbnail);
                 byte[] blob = Convert.FromBase64String(thumbnail);
                 thumb.LoadImage(blob);
                 classthumbnail.texture = thumb;
+            }
+            else
+            {
+                classthumbnail.texture = defaultThumbnail;
             }
             if (start == "N/A" && end == "N/A")
             {

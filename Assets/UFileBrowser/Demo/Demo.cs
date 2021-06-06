@@ -9,7 +9,7 @@ namespace uFileBrowser
     {
 
         public UnityEngine.UI.InputField IF;
-        Texture2D texNotFound;
+        Texture2D texNotFound, resized;
         private string filelocationinput = "";
         public RawImage testImage;
         public byte[] tempBlob;
@@ -33,6 +33,17 @@ namespace uFileBrowser
 
         }
 
+        Texture2D Resize(Texture2D texture2D, int targetX, int targetY)
+        {
+            RenderTexture rt = new RenderTexture(targetX, targetY, 24);
+            RenderTexture.active = rt;
+            Graphics.Blit(texture2D, rt);
+            Texture2D result = new Texture2D(targetX, targetY);
+            result.ReadPixels(new Rect(0, 0, targetX, targetY), 0, 0);
+            result.Apply();
+            return result;
+        }
+
 
         IEnumerator LoadTexture()
         {
@@ -46,12 +57,13 @@ namespace uFileBrowser
             {
                 avatarImage = www.texture;
                 //testImage.GetComponent<RawImage>().texture = avatarImage;
+                resized = Resize(avatarImage, 128, 128);
                 print(avatarImage.GetType());
-                tempBlob = avatarImage.EncodeToJPG();
+                tempBlob = resized.EncodeToJPG();
                 print(tempBlob);
                 Texture2D simple = new Texture2D(128, 128);
                 simple.LoadImage(tempBlob);
-                testImage.GetComponent<RawImage>().texture = simple;
+                testImage.GetComponent<RawImage>().texture = resized;
                 Debug.Log("Successfully saved!");
             }
             else
