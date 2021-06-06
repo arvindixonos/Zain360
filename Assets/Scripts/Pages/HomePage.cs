@@ -61,8 +61,7 @@ namespace Zain360
                 string roomOwner = objects["roomowner"] as string;
                 string startTime = objects["starttime"] as string;
                 string endTime = objects["endtime"] as string;
-                //byte[] thumbnail = (byte[]) objects["thumbnail"];
-                byte[] thumbnail = null;
+                string thumbnail = objects["thumbnail"] as string;
                 rooms[i].SetRoom(roomID, roomTitle, roomDescription, roomStatus, roomOwner, startTime, endTime, thumbnail);
                 i++;
             }
@@ -142,8 +141,10 @@ namespace Zain360
             string nowtime = System.DateTime.Now.Date.ToString("MM/dd/yyyy");
             roomDetails["starttime"] = nowtime + " " + editRoomsHandle.starttime.options[editRoomsHandle.starttime.value].text;
             roomDetails["endtime"] = nowtime + " " + editRoomsHandle.endtime.options[editRoomsHandle.endtime.value].text;
-            roomDetails["thumbnail"] = uFileBrowser.Demo.Instance.tempBlob;
+            string thumb = Convert.ToBase64String(uFileBrowser.Demo.Instance.tempBlob);
+            roomDetails["thumbnail"] = thumb;
             print(uFileBrowser.Demo.Instance.tempBlob.Length);
+            print(uFileBrowser.Demo.Instance.tempBlob.GetType());
             return roomDetails;
         }
 

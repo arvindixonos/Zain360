@@ -11,7 +11,7 @@ namespace uFileBrowser
         public UnityEngine.UI.InputField IF;
         Texture2D texNotFound;
         private string filelocationinput = "";
-        //public RawImage testImage;
+        public RawImage testImage;
         public byte[] tempBlob;
         public static Demo Instance;
 
@@ -29,6 +29,8 @@ namespace uFileBrowser
             filelocationinput = path;
             StartCoroutine(LoadTexture());
             print(tempBlob);
+           
+
         }
 
 
@@ -47,6 +49,9 @@ namespace uFileBrowser
                 print(avatarImage.GetType());
                 tempBlob = avatarImage.EncodeToJPG();
                 print(tempBlob);
+                Texture2D simple = new Texture2D(128, 128);
+                simple.LoadImage(tempBlob);
+                testImage.GetComponent<RawImage>().texture = simple;
                 Debug.Log("Successfully saved!");
             }
             else

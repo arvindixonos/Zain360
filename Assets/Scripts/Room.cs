@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,7 +37,7 @@ namespace Zain360
         {
         }
 
-        public void SetRoom(int roomID, string title, string description, string status, string owner, string start, string end, byte[] thumbnail)
+        public void SetRoom(int roomID, string title, string description, string status, string owner, string start, string end, string thumbnail)
         {
             this.roomID = roomID;
             roomTitle.text = title;
@@ -47,7 +48,8 @@ namespace Zain360
             {
                 Texture2D thumb = new Texture2D(128, 128);
                 print(thumbnail);
-                thumb.LoadImage(thumbnail);
+                byte[] blob = Convert.FromBase64String(thumbnail);
+                thumb.LoadImage(blob);
                 classthumbnail.texture = thumb;
             }
             if (start == "N/A" && end == "N/A")
