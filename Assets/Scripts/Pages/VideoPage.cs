@@ -48,6 +48,8 @@ namespace Zain360
 
         private bool videoMuted = false;
         private bool audioMuted = false;
+        private bool isChatPressed = false;
+        private bool isParticipantPressed = false;
 
 
         void Awake()
@@ -231,7 +233,9 @@ namespace Zain360
             {
                 MultiplayerManager.Instance.CallServer("setroomavailable", null, roomDetails);
             }
-
+            chatDelegate.scroller.ClearAll();
+            chatDelegate.ClearChatData();
+            ChatClicked();
             UIManager.Instance.ChangePage(ePages.HOME_PAGE);
         }
 
@@ -247,11 +251,20 @@ namespace Zain360
 
         public void ChatClicked()
         {
+            if(isParticipantPressed)
+            {
+                chatToggle.isOn = true;
+                participantToggle.isOn = false;
+                isParticipantPressed = !isParticipantPressed;
+                return;
+            }
+
             chatParticipantWindowShown = !chatParticipantWindowShown;
 
-            if(chatParticipantWindowShown)
+            if (chatParticipantWindowShown)
             {
                 ShowChatParticipantWindow();
+                isChatPressed = true;
             }
             else
             {
@@ -264,11 +277,19 @@ namespace Zain360
 
         public void ParticipantClicked()
         {
+            
+            if(isChatPressed)
+            {
+                chatToggle.isOn = false;
+                participantToggle.isOn = true;
+                isChatPressed = !isChatPressed;
+                return;
+            }
             chatParticipantWindowShown = !chatParticipantWindowShown;
-
             if (chatParticipantWindowShown)
             {
                 ShowChatParticipantWindow();
+                isParticipantPressed = true;
             }
             else
             {

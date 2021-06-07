@@ -78,6 +78,11 @@ namespace Zain360
             myInputField.ActivateInputField();
         }
 
+        public void ClearChatData()
+        {
+            _data.Clear();
+        }
+
         public void AddNewRow(DataChat.CellType cellType, string text)
         {
             // first, clear out the cells in the scroller so the new text transforms will be reset
@@ -177,7 +182,6 @@ namespace Zain360
         {
             // add a chat row from us
             AddNewRow(DataChat.CellType.MyText, GameManager.Instance.currentUserFirstName + ":" + myInputField.text);
-
             Dictionary<string, object> messageInfos = new Dictionary<string, object>();
             messageInfos["roomid"] = currentRoomID;
             messageInfos["message"] = myInputField.text;

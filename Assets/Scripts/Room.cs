@@ -48,7 +48,6 @@ namespace Zain360
             if(thumbnail != "")
             {
                 Texture2D thumb = new Texture2D(128, 128);
-                print(thumbnail);
                 byte[] blob = Convert.FromBase64String(thumbnail);
                 thumb.LoadImage(blob);
                 classthumbnail.texture = thumb;
