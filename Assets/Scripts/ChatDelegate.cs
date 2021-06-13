@@ -180,8 +180,15 @@ namespace Zain360
 
         public void SendClicked(int currentRoomID)
         {
+            if(myInputField.text.Trim().Length == 0)
+            {
+                return;
+            }
+
             // add a chat row from us
             AddNewRow(DataChat.CellType.MyText, GameManager.Instance.currentUserFirstName + ":" + myInputField.text);
+            //AddNewRow(DataChat.CellType.OtherText, GameManager.Instance.currentUserFirstName + ":" + myInputField.text);
+
             Dictionary<string, object> messageInfos = new Dictionary<string, object>();
             messageInfos["roomid"] = currentRoomID;
             messageInfos["message"] = myInputField.text;

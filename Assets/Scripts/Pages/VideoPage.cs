@@ -45,12 +45,16 @@ namespace Zain360
         public GameObject videoButton;
         public GameObject audioButton;
         public GameObject recordButton;
+        public RectTransform chatButton;
+        public RectTransform participantButton;
 
         private bool videoMuted = false;
         private bool audioMuted = false;
         private bool isChatPressed = false;
         private bool isParticipantPressed = false;
 
+
+        public InputField chatInputField;
 
         void Awake()
         {
@@ -68,7 +72,20 @@ namespace Zain360
             participantScrollerWindow.gameObject.SetActive(false);
         }
 
-        
+        public override void Update()
+        {
+            base.Update();
+
+            if(chatInputField.isFocused)
+            {
+                if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+                {
+                    SendButtonClicked();
+                }
+            }
+        }
+
+
         public override void ShowPage()
         {
             base.ShowPage();
@@ -76,6 +93,17 @@ namespace Zain360
             videoButton.gameObject.SetActive(!GameManager.Instance.isStudent);
             audioButton.gameObject.SetActive(!GameManager.Instance.isStudent);
             recordButton.gameObject.SetActive(!GameManager.Instance.isStudent);
+
+            if(!GameManager.Instance.isStudent)
+            {
+                chatButton.anchoredPosition = new Vector2(184f, -5f);
+                participantButton.anchoredPosition = new Vector2(92f, -5f);
+            }
+            else
+            {
+                chatButton.anchoredPosition = new Vector2(50f, -5f);
+                participantButton.anchoredPosition = new Vector2(-42f, -5f);
+            }
         }
 
         public void ToggleVideoMute()
@@ -102,7 +130,7 @@ namespace Zain360
         {
             currentRoomID = (int)(roomDetails["roomid"]);
 
-            usernameText.text = GameManager.Instance.currentUserFirstName + " " + GameManager.Instance.currentUserLastName;
+            usernameText.text = GameManager.Instance.currentUserFirstName;
             classTitleText.text = roomDetails["roomtitle"].ToString();
 
             fullScreenIndicator.gameObject.SetActive(false);
@@ -247,6 +275,8 @@ namespace Zain360
         void ParticipantsListReceived(List<string> participantsListReceived)
         {
             participantDelegate.ParticipantsListReceived(participantsListReceived);
+
+            //participantDelegate.ParticipantsListReceived(new List<string>() { "HELLO", "BELLL", "SKDJSKJDSKJ", "Dasdadadasd", "FGFDGFDGFDGDFG" });
         }
 
         public void ChatClicked()

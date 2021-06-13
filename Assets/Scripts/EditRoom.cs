@@ -43,6 +43,10 @@ namespace Zain360
             {
                 editRoomErrorText.text = "Please select start time and end time";                
             }
+            else if (endtime.value < starttime.value)
+            {
+                editRoomErrorText.text = "End time should be greater than start time";
+            }
             else
             {
                 UIManager.Instance.SendMessageToCurrentPage("SaveDetailsClicked");

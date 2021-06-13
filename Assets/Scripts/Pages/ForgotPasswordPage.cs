@@ -6,9 +6,16 @@ namespace Zain360
 {
     public class ForgotPasswordPage : Page
     {
+        public InputField username;
+
+        public GameObject errorText;
+
         public override void ShowPage()
         {
             base.ShowPage();
+
+            username.text = "";
+            errorText.gameObject.SetActive(false);
         }
 
         public void HomeClicked()
@@ -43,6 +50,11 @@ namespace Zain360
         public void ForgotPasswordClicked()
         {
             print("Forgot Password Clicked");
+        }
+
+        public void ShowErrorText()
+        {
+            errorText.gameObject.SetActive(true);
         }
     }
 }
