@@ -15,6 +15,8 @@ namespace UMP
         [SerializeField]
         private float _rotationSpeed = 4;
 
+        private bool scrollEnable = false;
+
         void Awake()
         {
             _cachedTransform = Camera.main.transform;
@@ -22,12 +24,34 @@ namespace UMP
 
         void Update()
         {
+            //if (Input.GetMouseButtonUp(RMB_ID))
+            //{
+            //    scrollEnable = false;
+            //}
+
+            //if (!scrollEnable)
+            //    return;
+
             TrackRotation();
+        }
+
+        public void OnMouseDown()
+        {
+            scrollEnable = true;
+
+            print("Mouse Down");
+        }
+
+        public void OnMouseUp()
+        {
+            scrollEnable = false;
+
+            print("Mouse Up");
         }
 
         private void TrackRotation()
         {
-            if (_rmbPrevPos.HasValue)
+            if (scrollEnable && _rmbPrevPos.HasValue)
             {
                 if (Input.GetMouseButton(RMB_ID))
                 {
@@ -43,12 +67,14 @@ namespace UMP
                 else
                 {
                     _rmbPrevPos = null;
+
+                    scrollEnable = false;
                 }
             }
             else if (Input.GetMouseButtonDown(RMB_ID))
             {
                 _rmbPrevPos = Input.mousePosition;
-            }
+            }            
         }
     }
 }
