@@ -13,8 +13,13 @@ public class test : MonoBehaviour
         System.DateTime dt = System.DateTime.Parse(currentTime);
     }
 
-    void Update()
+    public void OnMouseDown()
     {
-        
+        print("Mouse Down");
+    }
+
+    public void OnMouseUp()
+    {
+        print("Mouse Up");
     }
 }
