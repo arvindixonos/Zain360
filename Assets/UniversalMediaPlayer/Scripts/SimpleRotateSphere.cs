@@ -39,7 +39,7 @@ namespace UMP
         {
             scrollEnable = true;
 
-            print("Mouse Down");
+            //print("Mouse Down");
         }
 
         public void OnMouseUp()
@@ -51,7 +51,7 @@ namespace UMP
 
         private void TrackRotation()
         {
-            if (scrollEnable && _rmbPrevPos.HasValue)
+            if (_rmbPrevPos.HasValue)
             {
                 if (Input.GetMouseButton(RMB_ID))
                 {
@@ -60,7 +60,12 @@ namespace UMP
                     {
                         _x += (_rmbPrevPos.Value.y - Input.mousePosition.y) * Time.deltaTime * _rotationSpeed;
                         _y -= (_rmbPrevPos.Value.x - Input.mousePosition.x) * Time.deltaTime * _rotationSpeed;
-                        _cachedTransform.rotation = Quaternion.Euler(_x, _y, 0);
+
+                        if(scrollEnable)
+                        {
+                            _cachedTransform.rotation = Quaternion.Euler(_x, _y, 0);
+                        }
+
                         _rmbPrevPos = Input.mousePosition;
                     }
                 }
