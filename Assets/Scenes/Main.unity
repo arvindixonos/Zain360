@@ -7996,14 +7996,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2023900960}
-  m_RootOrder: 6
+  m_Father: {fileID: 804249704}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 1221, y: -86}
+  m_AnchoredPosition: {x: 75, y: -32}
   m_SizeDelta: {x: 453.87262, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &732608928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9004,6 +9004,7 @@ RectTransform:
   - {fileID: 228823635}
   - {fileID: 1904387092}
   - {fileID: 1047648503}
+  - {fileID: 732608927}
   m_Father: {fileID: 65501640}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17177,7 +17178,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2023900960}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21237,7 +21238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03477dfef9fbf7f419163ae208f3cfb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  address: http://azarel.ddns.net:2021/socket.io/
+  address: http://192.168.1.49:2021/socket.io/
 --- !u!1 &2023900959
 GameObject:
   m_ObjectHideFlags: 0
@@ -21275,7 +21276,6 @@ RectTransform:
   - {fileID: 1141149037}
   - {fileID: 1246366518}
   - {fileID: 65501640}
-  - {fileID: 732608927}
   - {fileID: 1517879946}
   m_Father: {fileID: 271953909}
   m_RootOrder: 2
