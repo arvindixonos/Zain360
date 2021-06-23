@@ -204,7 +204,7 @@ namespace Zain360
                 {
                     print(retstatus);
 
-                    UIManager.Instance.SendMessageToCurrentPage("ShowLoginErrorText", "Unable to login! Please check login Details.");
+                    UIManager.Instance.SendMessageToCurrentPage("ShowLoginErrorText", "Incorrect Email or Password.");
                 }
             }
         }

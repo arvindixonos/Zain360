@@ -141,6 +141,8 @@ namespace Zain360
             string nowtime = System.DateTime.Now.Date.ToString("MM/dd/yyyy");
             roomDetails["starttime"] = nowtime + " " + editRoomsHandle.starttime.options[editRoomsHandle.starttime.value].text;
             roomDetails["endtime"] = nowtime + " " + editRoomsHandle.endtime.options[editRoomsHandle.endtime.value].text;
+            print(roomDetails["starttime"]);
+            print(roomDetails["endtime"]);
             if(uFileBrowser.Demo.Instance.tempBlob != null)
             {
                 string thumb = Convert.ToBase64String(uFileBrowser.Demo.Instance.tempBlob);

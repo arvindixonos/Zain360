@@ -240,7 +240,7 @@ namespace Zain360
             print("SOME ERROR!");
         }
 
-        public void ExitClass(string message)
+        public void ExitClass()
         {
             EndClassClicked();
         }
@@ -260,10 +260,10 @@ namespace Zain360
             if (!GameManager.Instance.isStudent)
             {
                 MultiplayerManager.Instance.CallServer("setroomavailable", null, roomDetails);
+                chatDelegate.scroller.ClearAll();
+                chatDelegate.ClearChatData();
+                ChatClicked();
             }
-            chatDelegate.scroller.ClearAll();
-            chatDelegate.ClearChatData();
-            ChatClicked();
             UIManager.Instance.ChangePage(ePages.HOME_PAGE);
         }
 
@@ -281,7 +281,8 @@ namespace Zain360
 
         public void ChatClicked()
         {
-            if(isParticipantPressed)
+            SendButtonClicked();
+            if (isParticipantPressed)
             {
                 chatToggle.isOn = true;
                 participantToggle.isOn = false;
@@ -307,8 +308,8 @@ namespace Zain360
 
         public void ParticipantClicked()
         {
-            
-            if(isChatPressed)
+            SendButtonClicked();
+            if (isChatPressed)
             {
                 chatToggle.isOn = false;
                 participantToggle.isOn = true;

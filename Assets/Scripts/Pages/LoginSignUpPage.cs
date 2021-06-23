@@ -171,7 +171,7 @@ namespace Zain360
             
             if(username.Length < 5 || !username.Contains("@") || !username.Contains("."))
             {
-                ShowLoginErrorText("Incorrect Username. Please try again");
+                ShowLoginErrorText("Incorrect Email or Password.");
             }
             else if(password.Length == 0)
             {

@@ -186,7 +186,7 @@ namespace Zain360
             }
 
             // add a chat row from us
-            AddNewRow(DataChat.CellType.MyText, GameManager.Instance.currentUserFirstName + ":" + myInputField.text);
+            AddNewRow(DataChat.CellType.MyText, "<b>"+ GameManager.Instance.currentUserFirstName + "</b>" + ":" + myInputField.text);
             //AddNewRow(DataChat.CellType.OtherText, GameManager.Instance.currentUserFirstName + ":" + myInputField.text);
 
             Dictionary<string, object> messageInfos = new Dictionary<string, object>();
