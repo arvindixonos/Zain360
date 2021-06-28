@@ -73,11 +73,18 @@ namespace Zain360
 
         private void Update()
         {
-//#if UNITY_ANDROID 
-//            Camera.main.transform.localRotation = Input.gyro.attitude * rot;
+            //#if UNITY_ANDROID 
+            //            Camera.main.transform.localRotation = Input.gyro.attitude * rot;
 
-//            print(Camera.main.transform.localRotation.eulerAngles + "   " + Input.gyro.attitude.eulerAngles);
-//#endif
+            //            print(Camera.main.transform.localRotation.eulerAngles + "   " + Input.gyro.attitude.eulerAngles);
+            //#endif
+
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
+            {
+                print("TRIGGER BUTTON DOWN");
+            }    
+
+            //print(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger));
         }
 
         public void StopStream()

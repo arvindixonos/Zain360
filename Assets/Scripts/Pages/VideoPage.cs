@@ -56,6 +56,9 @@ namespace Zain360
 
         public InputField chatInputField;
 
+        public Transform ovrCamera;
+
+
         void Awake()
         {
             videoRenderImageAnchorMin = videoRenderImage.rectTransform.anchorMin;
@@ -75,6 +78,16 @@ namespace Zain360
         public override void Update()
         {
             base.Update();
+
+            if (fullscreen)
+            {
+                if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
+                {
+                    print("Index Trigger Clicked");
+
+                    FullScreenClicked();
+                }
+            }
 
             if(chatInputField.isFocused)
             {
@@ -171,10 +184,14 @@ namespace Zain360
             if(fullscreen)
             {
                 SetFullScreen();
+
+                ovrCamera.position = new Vector3(0f, 0f, 0f);
             }
             else
             {
                 SetHalfScreen();
+
+                ovrCamera.position = new Vector3(0f, 0f, -110f);
             }
         }
 

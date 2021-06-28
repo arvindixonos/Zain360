@@ -13876,6 +13876,7 @@ MonoBehaviour:
   chatButton: {fileID: 2105971916}
   participantButton: {fileID: 1233827276}
   chatInputField: {fileID: 2887806925885676719}
+  ovrCamera: {fileID: 0}
 --- !u!225 &1146162294
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -21238,7 +21239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03477dfef9fbf7f419163ae208f3cfb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  address: http://192.168.1.49:2021/socket.io/
+  address: http://azarel.ddns.net:2021/socket.io/
 --- !u!1 &2023900959
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,14 +5,29 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/UniversalMediaPlayer/Scenes/360VideoExample.unity
-    guid: d289fa9b48914ce4a9997d8f7e3caec3
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bb44b670e648df74d99513af8c53cadf
+  - enabled: 0
+    path: Assets/Oculus/SampleFramework/Usage/CustomControllers.unity
+    guid: e0f49aa4174f98941b88699b5fecddc0
+  - enabled: 0
+    path: Assets/Oculus/SampleFramework/Usage/DebugUI.unity
+    guid: 34004346bd7dcbf4fbfd78d2f12e4451
+  - enabled: 0
+    path: Assets/Scenes/Main 1.unity
+    guid: ded226dc3e45e9149873e90df1947d06
+  - enabled: 0
+    path: Assets/Scenes/test2.unity
+    guid: 00263f55d4552b740996a04153f6970d
+  - enabled: 0
+    path: Assets/UniversalMediaPlayer/Scenes/360VideoExample.unity
+    guid: d289fa9b48914ce4a9997d8f7e3caec3
+  - enabled: 0
+    path: Assets/Scenes/test.unity
+    guid: df64bc70e1ec68b49a0d23de7005983a
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 78965af7608e2d54ca5fa3bfd13eb1a6,
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 310973baf04bc4743b925a14b28de97d,
       type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4e2caf966b35cac48a03b6623efc7866,
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7f5e0336c17dfc94bbdafc3cea52744f,
       type: 2}

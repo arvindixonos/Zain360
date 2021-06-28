@@ -7,10 +7,6 @@ public class test : MonoBehaviour
 {
     void Start()
     {
-        string currentTime = System.DateTime.Now.ToString("MM/dd/yyyy HH:mm");
-        string todayTime = System.DateTime.Today.ToString("MM/dd/yyyy HH:mm");
-
-        System.DateTime dt = System.DateTime.Parse(currentTime);
     }
 
     public void OnMouseDown()
@@ -21,5 +17,13 @@ public class test : MonoBehaviour
     public void OnMouseUp()
     {
         print("Mouse Up");
+    }
+
+    public void Update()
+    {
+        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
+        {
+            //print(OVRInput.Orie(OVRInput.Controller.RHand));
+        }
     }
 }
