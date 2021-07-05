@@ -22,6 +22,7 @@ namespace Zain360
         public Button joinClassButton;
         public Button startClassButton;
         public Button editRoomButtom;
+        public Button endClass;
 
         public Color buttonTextSelectedColor;
         public Color buttonTextDisabledColor;
@@ -134,7 +135,11 @@ namespace Zain360
             Dictionary<string, object> roomDetails = new Dictionary<string, object>();
             roomDetails["roomid"] = roomID;
             roomDetails["roomtitle"] = roomTitle.text;
-           
+            if(GameManager.Instance.isStudent)
+            {
+                print("Student");
+                endClass.GetComponent<Text>().text = "Leave Class";
+            }
             UIManager.Instance.SendMessageToCurrentPage("JoinRoomClicked", roomDetails);
         }
 
