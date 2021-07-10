@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Keys: 07000000
   Values:
-  - {fileID: 3559447569667861485}
---- !u!114 &3559447569667861485
+  - {fileID: 102684151732358089}
+--- !u!114 &102684151732358089
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27,9 +27,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d236b7d11115f2143951f1e14045df39, type: 3}
   m_Name: Android Settings
   m_EditorClassIdentifier: 
-  m_LoaderManagerInstance: {fileID: 8272423074179040189}
-  m_InitManagerOnStart: 1
---- !u!114 &8272423074179040189
+  m_LoaderManagerInstance: {fileID: 3349309474021977704}
+  m_InitManagerOnStart: 0
+--- !u!114 &3349309474021977704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,5 +44,4 @@ MonoBehaviour:
   m_RequiresSettingsUpdate: 0
   m_AutomaticLoading: 0
   m_AutomaticRunning: 0
-  m_Loaders:
-  - {fileID: 11400000, guid: 053ebbf22345ed542bfd0cea1bb33387, type: 2}
+  m_Loaders: []
