@@ -36,7 +36,7 @@ namespace Zain360
             FetchRoomInfos();
         }
 
-        private void FetchRoomInfos()
+        public void FetchRoomInfos()
         {
             MultiplayerManager.Instance.CallServer("getallroomsinfo", RoomInfosResult, null);
         }
@@ -139,7 +139,7 @@ namespace Zain360
             roomDetails["title"] = editRoomsHandle.roomTitle.text;
             roomDetails["description"] = editRoomsHandle.roomDescription.text;
             string nowtime = System.DateTime.Now.Date.ToString("MM/dd/yyyy");
-            nowtime = nowtime.Replace("/", "-");
+            nowtime = nowtime.Replace("-", "/");
             roomDetails["starttime"] = nowtime + " " + editRoomsHandle.starttime.options[editRoomsHandle.starttime.value].text;
             roomDetails["endtime"] = nowtime + " " + editRoomsHandle.endtime.options[editRoomsHandle.endtime.value].text;
             print(roomDetails["starttime"]);

@@ -13,6 +13,7 @@ namespace Zain360
     {
         public RenderTexture videoRenderTexture;
         public RawImage videoRenderImage;
+        public Button exitClass;
 
         private Vector2 videoRenderImageAnchorMin = Vector2.zero;
         private Vector2 videoRenderImageAnchorMax = Vector2.zero;
@@ -111,11 +112,14 @@ namespace Zain360
             {
                 chatButton.anchoredPosition = new Vector2(184f, -5f);
                 participantButton.anchoredPosition = new Vector2(92f, -5f);
+                exitClass.gameObject.SetActive(false);
             }
             else
             {
                 chatButton.anchoredPosition = new Vector2(50f, -5f);
                 participantButton.anchoredPosition = new Vector2(-42f, -5f);
+                exitClass.gameObject.SetActive(true);
+                
             }
         }
 
