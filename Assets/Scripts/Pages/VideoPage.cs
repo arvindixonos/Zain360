@@ -81,12 +81,12 @@ namespace Zain360
 
             if (fullscreen)
             {
-                if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
-                {
-                    print("Index Trigger Clicked");
+                //if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
+                //{
+                //    print("Index Trigger Clicked");
 
-                    FullScreenClicked();
-                }
+                //    FullScreenClicked();
+                //}
             }
 
             if(chatInputField.isFocused)

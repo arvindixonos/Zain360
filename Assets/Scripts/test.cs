@@ -21,9 +21,9 @@ public class test : MonoBehaviour
 
     public void Update()
     {
-        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
-        {
-            //print(OVRInput.Orie(OVRInput.Controller.RHand));
-        }
+        //if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
+        //{
+        //    //print(OVRInput.Orie(OVRInput.Controller.RHand));
+        //}
     }
 }

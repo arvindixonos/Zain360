@@ -79,10 +79,10 @@ namespace Zain360
             //            print(Camera.main.transform.localRotation.eulerAngles + "   " + Input.gyro.attitude.eulerAngles);
             //#endif
 
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
-            {
-                print("TRIGGER BUTTON DOWN");
-            }    
+            //if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
+            //{
+            //    print("TRIGGER BUTTON DOWN");
+            //}    
 
             //print(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger));
         }
