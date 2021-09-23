@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: bb44b670e648df74d99513af8c53cadf
   - enabled: 0
-    path: Assets/Oculus/SampleFramework/Usage/CustomControllers.unity
-    guid: e0f49aa4174f98941b88699b5fecddc0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Oculus/SampleFramework/Usage/DebugUI.unity
-    guid: 34004346bd7dcbf4fbfd78d2f12e4451
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/Main 1.unity
     guid: ded226dc3e45e9149873e90df1947d06

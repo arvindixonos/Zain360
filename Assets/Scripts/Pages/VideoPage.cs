@@ -106,12 +106,12 @@ namespace Zain360
 
             videoButton.gameObject.SetActive(!GameManager.Instance.isStudent);
             audioButton.gameObject.SetActive(!GameManager.Instance.isStudent);
-            recordButton.gameObject.SetActive(!GameManager.Instance.isStudent);
+            //recordButton.gameObject.SetActive(!GameManager.Instance.isStudent);
 
             if(!GameManager.Instance.isStudent)
             {
-                chatButton.anchoredPosition = new Vector2(184f, -5f);
-                participantButton.anchoredPosition = new Vector2(92f, -5f);
+                chatButton.anchoredPosition = new Vector2(92f, -5f);
+                participantButton.anchoredPosition = new Vector2(0f, -5f);
                 exitClass.gameObject.SetActive(false);
             }
             else
@@ -119,7 +119,6 @@ namespace Zain360
                 chatButton.anchoredPosition = new Vector2(50f, -5f);
                 participantButton.anchoredPosition = new Vector2(-42f, -5f);
                 exitClass.gameObject.SetActive(true);
-                
             }
         }
 
