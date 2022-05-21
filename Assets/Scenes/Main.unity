@@ -3037,7 +3037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _path
-      value: rtmp://azarel.ddns.net/live/class01
+      value: rtmp://10.231.14.53/live/class01
       objectReference: {fileID: 0}
     - target: {fileID: 11420564, guid: c404114afaafa3b4494665d1634c383c, type: 3}
       propertyPath: _volume
@@ -8618,7 +8618,7 @@ PrefabInstance:
     - target: {fileID: 597409918884292876, guid: 73e0be349379aa34ba11cd754bc72b01,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 597409918884292877, guid: 73e0be349379aa34ba11cd754bc72b01,
         type: 3}
@@ -21791,7 +21791,7 @@ MonoBehaviour:
   domeMaterial: {fileID: 2100000, guid: a1d3513c88f742040b8d2e630b7d62c5, type: 2}
   UICanvas: {fileID: 271953908}
   updateText: {fileID: 0}
-  serverAddress: azarel.ddns.net
+  serverAddress: 10.231.14.53
   universalMediaPlayer: {fileID: 222958439}
   gyroCamera: {fileID: 276571308}
   rotateCamera: {fileID: 444876749}
@@ -21836,7 +21836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03477dfef9fbf7f419163ae208f3cfb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  address: http://azarel.ddns.net:2021/socket.io/
+  address: http://10.231.14.53:2021/socket.io/
 --- !u!1 &2023900959
 GameObject:
   m_ObjectHideFlags: 0

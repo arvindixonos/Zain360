@@ -33,7 +33,8 @@ namespace Zain360
             roomsHandle.SetActive(true);
             editRoomsHandle.gameObject.SetActive(false);
 
-            FetchRoomInfos();
+            CancelInvoke("FetchRoomInfos");
+            InvokeRepeating("FetchRoomInfos", 0f, 2f);
         }
 
         public void FetchRoomInfos()
@@ -82,6 +83,8 @@ namespace Zain360
         public override void HidePage()
         {
             base.HidePage();
+
+            CancelInvoke("FetchRoomInfos");
         }
 
         public void JoinRoomClicked(Dictionary<string, object> roomDetails)
