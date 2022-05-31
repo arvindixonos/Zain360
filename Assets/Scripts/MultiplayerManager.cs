@@ -14,6 +14,8 @@ namespace Zain360
 
         public string address = "http://127.0.0.1:2021/socket.io/";
 
+        public GameObject reconnectingIndicator;
+
         public void Awake()
         {
             if (Instance == null)
@@ -23,6 +25,7 @@ namespace Zain360
 
             Init();
         }
+
         private void Start()
         {
             
@@ -47,6 +50,9 @@ namespace Zain360
             socketManager.Socket.On(SocketIOEventTypes.Connect, (s, p, a) =>
             {
                 print("Connected to Zain360");
+
+                CancelInvoke("CheckSocketConnection");
+                InvokeRepeating("CheckSocketConnection", 2f, 2f);
             });
 
             socketManager.Socket.On(SocketIOEventTypes.Disconnect, (s, p, a) =>
@@ -113,11 +119,24 @@ namespace Zain360
 
                 UIManager.Instance.SendMessageToCurrentPage("ParticipantsListReceived", usernames);
             });
+
+        }
+
+        public void CheckSocketConnection()
+        {
+            if (socketManager != null && reconnectingIndicator != null)
+            {
+                reconnectingIndicator.SetActive(socketManager.State == SocketManager.States.Reconnecting ||
+                                                socketManager.State == SocketManager.States.Opening);
+            }
         }
 
         public void CallServer(string eventName, SocketIOAckCallback callback = null, params object[] args)
         {
-            socketManager.Socket.Emit(eventName, callback, args);
+            if(socketManager.State == SocketManager.States.Open)
+            {
+                socketManager.Socket.Emit(eventName, callback, args);
+            }
         }
     }
 

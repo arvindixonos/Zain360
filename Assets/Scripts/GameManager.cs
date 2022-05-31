@@ -154,8 +154,13 @@ namespace Zain360
             MultiplayerManager.Instance.CallServer("logout", null, null);
         }
 
+        private string prevUsername = "";
+        private string prevPassword = "";
         public void Login(string username, string password)
         {
+            prevUsername = username;
+            prevPassword = password;
+
             Dictionary<string, object> userinfos = new Dictionary<string, object>();
             userinfos["username"] = username;
             userinfos["password"] = password;
@@ -190,6 +195,13 @@ namespace Zain360
             //}
         }
 
+        public void SavesuccessfulLogin()
+        {
+            PlayerPrefs.SetString("SAVED_USERNAME", prevUsername);
+            PlayerPrefs.SetString("SAVED_PASSWORD", prevPassword);
+            PlayerPrefs.Save();
+        }
+       
         public void LoginResult(Socket socket, Packet packet, params object[] args)
         {
             Dictionary<string, object> retObjects = args[0] as Dictionary<string, object>;
@@ -203,6 +215,8 @@ namespace Zain360
                 {
                     currentUserFirstName = retObjects["firstname"].ToString();
                     currentUserLastName = retObjects["lastname"].ToString();
+
+                    SavesuccessfulLogin();
 
                     UIManager.Instance.ChangePage(ePages.HOME_PAGE);
                 }

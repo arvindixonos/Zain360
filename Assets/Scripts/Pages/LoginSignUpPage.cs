@@ -27,6 +27,10 @@ namespace Zain360
         public Text loginErrorText;
         public Text signupErrorText;
 
+
+        private string savedUsername;
+        private string savedPassword;
+
         public override void Awake()
         {
             base.Awake();
@@ -67,8 +71,8 @@ namespace Zain360
 
         public void ClearLoginFields()
         {
-            lo_usernameField.text = "";
-            lo_passwordField.text = "";
+            lo_usernameField.text = PlayerPrefs.GetString("SAVED_USERNAME", "");
+            lo_passwordField.text = PlayerPrefs.GetString("SAVED_PASSWORD", "");
         }
 
         public void LoginSelected()

@@ -8,24 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bb44b670e648df74d99513af8c53cadf
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/Main 1.unity
-    guid: ded226dc3e45e9149873e90df1947d06
-  - enabled: 0
-    path: Assets/Scenes/test2.unity
-    guid: 00263f55d4552b740996a04153f6970d
-  - enabled: 0
-    path: Assets/UniversalMediaPlayer/Scenes/360VideoExample.unity
-    guid: d289fa9b48914ce4a9997d8f7e3caec3
-  - enabled: 0
-    path: Assets/Scenes/test.unity
-    guid: df64bc70e1ec68b49a0d23de7005983a
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 310973baf04bc4743b925a14b28de97d,
       type: 2}
