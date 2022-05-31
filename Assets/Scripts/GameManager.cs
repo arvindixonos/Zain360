@@ -19,7 +19,6 @@ namespace Zain360
 
         public static GameManager Instance;
 
-        public string serverAddress;
         public UniversalMediaPlayer universalMediaPlayer;
 
         private Quaternion rot = new Quaternion(0, 1, 0, 1);
